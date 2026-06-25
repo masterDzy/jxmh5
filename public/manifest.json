@@ -1,0 +1,8 @@
+{
+  "name": "九信阁",
+  "short_name": "九信阁",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#D94E3D"
+}

@@ -1,0 +1,13 @@
+# jxmapk backend dependencies — 版本已锁定（P2-20 fix 2026-06-21）
+# 生产环境必须使用 == 避免小版本 breaking change
+fastapi==0.135.3
+uvicorn[standard]==0.42.0
+sqlalchemy[asyncio]==2.0.48
+asyncpg==0.31.0
+pydantic==2.12.5
+pydantic-settings==2.13.1
+email-validator==2.3.0
+python-jose==3.5.0
+passlib==1.7.4
+bcrypt==5.0.0
+httpx==0.28.1

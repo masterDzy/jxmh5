@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" fill="currentColor">
+  <!-- 提手 U 形弧线 — 描边 -->
+  <path d="M352 384c0-79.584 71.776-160 160-160s160 80.416 160 160"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="48"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <!-- 袋身 — 圆角矩形礼袋造型 -->
+  <path d="M256 384h512l-44.8 448c-2.4 24-22.4 42.4-46.4 43.2H347.2c-24-0.8-44-19.2-46.4-43.2L256 384z"/>
+  <!-- 礼袋口装饰条(白色高光,增加层次) -->
+  <rect x="288" y="416" width="448" height="40" rx="8" fill="#ffffff" opacity="0.35"/>
+  <!-- 蝴蝶结 — 左半三角 -->
+  <path d="M512 320l-48-32 48-32 48 32-48 32z"/>
+  <!-- 蝴蝶结 — 中间带 -->
+  <path d="M464 288h96v32h-96z"/>
+</svg>

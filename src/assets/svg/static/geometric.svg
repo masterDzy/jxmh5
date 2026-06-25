@@ -1,0 +1,17 @@
+<svg class="card-logo card-bg-svg" viewBox="0 0 132 132">
+  <defs>
+    <linearGradient id="geoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#2f748a;stop-opacity:0.5"/>
+    </linearGradient>
+  </defs>
+  <g id="g3" class="geometric">
+    <!-- 六边形 -->
+    <polygon fill="url(#geoGrad1)" opacity="0.4" points="66,10 116,38 116,94 66,122 16,94 16,38"/>
+    <polygon fill="none" stroke="#D4AF37" stroke-width="1" opacity="0.6" points="66,10 116,38 116,94 66,122 16,94 16,38"/>
+    <!-- 内部三角 -->
+    <polygon fill="none" stroke="#D4AF37" stroke-width="0.5" opacity="0.4" points="66,25 101,45 101,87 66,107 31,87 31,45"/>
+    <!-- 中心点 -->
+    <circle cx="66" cy="66" r="8" fill="#D4AF37" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+/**
+ * jmaui 字体 - 本地字体声明
+ * 使用系统已安装的思源和 cwTeX 字体
+ */
+
+/* 思源黑体 - 简中正文/UI */
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/jmaui/fonts/NotoSansCJK-Regular.ttc') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/jmaui/fonts/NotoSansCJK-Bold.ttc') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 思源宋体 - 简中标题/CMS长文 */
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('/jmaui/fonts/NotoSerifCJK-Regular.ttc') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('/jmaui/fonts/NotoSerifCJK-Bold.ttc') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* cwTeX 明体 - 繁体艺术字/品牌 */
+@font-face {
+  font-family: 'cwTeXMing';
+  src: url('/jmaui/fonts/cwming.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

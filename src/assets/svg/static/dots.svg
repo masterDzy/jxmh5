@@ -1,0 +1,12 @@
+<svg class="card-logo card-bg-svg" viewBox="0 0 132 132">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="132" height="132" fill="url(#dots)"/>
+  <g id="g3" class="dots-pattern">
+    <circle cx="66" cy="66" r="40" fill="none" stroke="#D4AF37" stroke-width="1" opacity="0.3"/>
+    <circle cx="66" cy="66" r="60" fill="none" stroke="#D4AF37" stroke-width="0.5" opacity="0.2"/>
+  </g>
+</svg>

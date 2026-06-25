@@ -1,0 +1,8421 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ========================================== */
+/* JMAUI COMPONENT STYLES (merged from jmaui.css) */
+/* DO NOT EDIT MANUALLY - All component CSS is here */
+/* ========================================== */
+
+/* ===== JMAUI BRAND COLOR TOKENS ===== */
+/* 调色板:全局 CSS 变量,组件不硬编码颜色,只读这些变量或从 props 传色 */
+:root {
+  /* 主品牌色 (玫红) — 开心园地、服务、商城 */
+  --jm-color-brand-rose: #da2e75;
+  /* 朱红 — 品牌主色、预约 */
+  --jm-color-brand-vermilion: #D94E3D;
+  /* 橙红 — 运势 */
+  --jm-color-brand-orange: #fb5c3e;
+  /* 暖橙黄 — 运势辅色 */
+  --jm-color-brand-amber: #ffad4f;
+  /* 青 — 知识 */
+  --jm-color-brand-cyan: #2f748a;
+  /* 金 — 高端/SVIP */
+  --jm-color-brand-gold: #D4AF37;
+  /* 绿 — 生长/点缀 */
+  --jm-color-brand-green: #A6BA43;
+  /* 中性灰阶 */
+  --jm-color-neutral-100: #fafafa;
+  --jm-color-neutral-200: #f0f0f0;
+  --jm-color-neutral-300: #e0e0e0;
+  --jm-color-neutral-500: #999999;
+  --jm-color-neutral-700: #666666;
+  --jm-color-neutral-900: #171717;
+  /* 语义化色别名(让组件读语义而不是记色号) */
+  --jm-color-text-primary: var(--jm-color-neutral-900);
+  --jm-color-text-secondary: var(--jm-color-neutral-700);
+  --jm-color-text-muted: var(--jm-color-neutral-500);
+  --jm-color-border: var(--jm-color-neutral-300);
+  --jm-color-page-bg: var(--jm-color-neutral-100);
+}
+
+/* ===== JMAUI COMPONENT STYLES ===== */
+
+/* content/JmBrandBadge/styles.css */
+.jm-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 20px;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.18'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='gf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.12' numOctaves='1' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0' intercept='0.83'/%3E%3CfeFuncG type='linear' slope='0' intercept='0.69'/%3E%3CfeFuncB type='linear' slope='0' intercept='0.22'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23gf)' opacity='0.72'/%3E%3C/svg%3E");
+}
+.jm-brand-badge__brand {
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+.jm-brand-badge__tagline {
+  font-family: system-ui;
+  font-size: 12px;
+  color: #666;
+}
+.jm-brand-badge__subtitle {
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #666;
+}
+
+/* content/JmCateLabel/styles.css */
+/**
+ * JmCateLabel 样式
+ * 分类标签组件（紧贴型）
+ */
+
+/* 标签容器 */
+.jm-cate-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 6px;
+  border-radius: 2px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: rgba(0, 0, 0, 0.04);
+  color: #999;
+  box-sizing: border-box;
+  min-height: 0;
+  vertical-align: top;
+}
+
+.jm-cate-label:active {
+  transform: scale(0.96);
+}
+
+/* 选中状态 */
+.jm-cate-label--active {
+  background: rgba(218, 46, 117, 0.12);
+  color: var(--label-color, #da2e75);
+  font-weight: 500;
+}
+
+/* 序号（数字部分） */
+.jm-cate-label__number {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  margin-right: 0;
+  color: inherit;
+}
+
+/* 文字部分 - 紧贴序号 */
+.jm-cate-label__text {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  margin-left: 0;
+}
+
+/* content/JmHeroBanner/styles.css */
+/**
+ * JmHeroBanner Styles
+ * 英雄区域组件样式
+ */
+
+.jm-hero-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.jm-hero-banner--full {
+  min-height: 100vh;
+}
+
+.jm-hero-banner--half {
+  min-height: 50vh;
+}
+
+.jm-hero-banner--auto {
+  min-height: auto;
+  padding: 24px 16px;
+}
+
+.jm-hero-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* content/JmKnowledgeCard/styles.css */
+.jm-knowledge-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;                  /* 配合 grid minmax(0, 1fr),让卡片可以被压缩到 1/2 容器宽 */
+}
+
+.jm-knowledge-card:active {
+  transform: scale(0.98);
+}
+
+.jm-knowledge-card__cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.jm-knowledge-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-knowledge-card__cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background: linear-gradient(135deg, #fafafa, #f0f0f0);
+}
+
+.jm-knowledge-card__video-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 10px;
+}
+
+.jm-knowledge-card__content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.jm-knowledge-card__category {
+  display: inline-block;
+  font-size: 10px;
+  color: #2f748a;
+  background: rgba(47, 116, 138, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.jm-knowledge-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.jm-knowledge-card__summary {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 8px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.jm-knowledge-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.jm-knowledge-card__date {
+  font-size: 11px;
+  color: #999;
+}
+
+.jm-knowledge-card__stats {
+  font-size: 11px;
+  color: #bbb;
+}
+/* content/JmKnowledgeDetail/styles.css */
+/**
+ * JmKnowledgeDetail 样式
+ * 知识详情页滑入式组件
+ */
+
+/* 滑入容器 */
+.jm-knowledge-detail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 激活状态：从右侧滑入 */
+.jm-knowledge-detail.active {
+  transform: translateX(0);
+}
+
+/* 固定顶部栏 */
+.jm-knowledge-detail__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 56px;
+}
+
+/* 返回按钮 */
+.jm-knowledge-detail__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: background-color 150ms ease;
+}
+
+.jm-knowledge-detail__back:active {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.jm-knowledge-detail__back svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 操作按钮组 */
+.jm-knowledge-detail__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jm-knowledge-detail__action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jm-knowledge-detail__action:active {
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+}
+
+.jm-knowledge-detail__action svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 收藏按钮激活状态 */
+.jm-knowledge-detail__action--favorite.active {
+  color: #da5342;
+  border-color: #da5342;
+  background: rgba(218, 83, 66, 0.08);
+}
+
+/* 可滚动内容区 */
+.jm-knowledge-detail__body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 封面图 */
+.jm-knowledge-detail__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.jm-knowledge-detail__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-knowledge-detail__cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  background: linear-gradient(135deg, #fafafa, #f0f0f0);
+}
+
+/* 文章主体内容 */
+.jm-knowledge-detail__content {
+  padding: 20px 16px;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+
+/* 标题 */
+.jm-knowledge-detail__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
+}
+
+/* 元信息 */
+.jm-knowledge-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.jm-knowledge-detail__category {
+  display: inline-block;
+  font-size: 12px;
+  color: #2f748a;
+  background: rgba(47, 116, 138, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.jm-knowledge-detail__dot {
+  color: #ddd;
+  font-size: 12px;
+}
+
+.jm-knowledge-detail__date {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 统计信息 */
+.jm-knowledge-detail__stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.jm-knowledge-detail__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #999;
+}
+
+.jm-knowledge-detail__stat svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+/* 摘要区块 - 蓝色左边框 */
+.jm-knowledge-detail__summary {
+  position: relative;
+  padding: 16px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  background: rgba(47, 116, 138, 0.04);
+  border-left: 3px solid #2f748a;
+  border-radius: 0 8px 8px 0;
+}
+
+.jm-knowledge-detail__summary-label {
+  font-size: 12px;
+  color: #2f748a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.jm-knowledge-detail__summary-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* 正文区块 */
+.jm-knowledge-detail__article {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #333;
+}
+
+.jm-knowledge-detail__article p {
+  margin: 0 0 16px;
+}
+
+.jm-knowledge-detail__article h1,
+.jm-knowledge-detail__article h2,
+.jm-knowledge-detail__article h3,
+.jm-knowledge-detail__article h4 {
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 24px 0 12px;
+  color: #1a1a1a;
+}
+
+.jm-knowledge-detail__article h1 {
+  font-size: 20px;
+}
+
+.jm-knowledge-detail__article h2 {
+  font-size: 18px;
+}
+
+.jm-knowledge-detail__article h3 {
+  font-size: 16px;
+}
+
+.jm-knowledge-detail__article h4 {
+  font-size: 15px;
+}
+
+.jm-knowledge-detail__article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.jm-knowledge-detail__article a {
+  color: #2f748a;
+  text-decoration: none;
+}
+
+.jm-knowledge-detail__article a:hover {
+  text-decoration: underline;
+}
+
+.jm-knowledge-detail__article ul,
+.jm-knowledge-detail__article ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.jm-knowledge-detail__article li {
+  margin-bottom: 8px;
+}
+
+.jm-knowledge-detail__article blockquote {
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: #f9f9f9;
+  border-left: 3px solid #2f748a;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+}
+
+.jm-knowledge-detail__article code {
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 13px;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #da5342;
+}
+
+.jm-knowledge-detail__article pre {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.jm-knowledge-detail__article pre code {
+  background: none;
+  padding: 0;
+  color: #333;
+}
+
+/* 视频标识 */
+.jm-knowledge-detail__video-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 16px;
+}
+
+/* 空状态 */
+.jm-knowledge-detail__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+  text-align: center;
+}
+
+.jm-knowledge-detail__empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* 入场动画 */
+@keyframes jm-detail-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes jm-detail-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.jm-knowledge-detail__header {
+  animation: jm-detail-fade-in 200ms ease;
+}
+
+.jm-knowledge-detail__cover {
+  animation: jm-detail-fade-in 300ms ease;
+}
+
+/* content/JmOursCateCard/styles.css */
+/**
+ * JmOursCateCard 样式
+ * 服务页专用分类卡片
+ */
+
+/* 卡片容器 */
+.jm-category-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* 顶部标题行 */
+.jm-category-card__header {
+  display: flex;
+  align-items: stretch;
+  background: #fafafa;
+}
+
+/* 左侧标题标签 — 上左右圆角6px */
+.jm-category-card__header-label {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  background: #da2e75;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.jm-category-card__header-title {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Noto Serif SC", Georgia, serif;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+/* 右侧空白区域 */
+.jm-category-card__header-empty {
+  flex: 1;
+  background: #fafafa;
+  border-right: none;
+}
+
+/* 子分类项列表 — 双排 */
+.jm-category-card__items {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 单个分类项 */
+.jm-category-card__item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+/* 偶数项去掉右边框 */
+.jm-category-card__item:nth-child(2n) {
+  border-right: none;
+}
+
+/* 最后一行去掉下边框 */
+.jm-category-card__item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.jm-category-card__item:active {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* 标签小圆点 */
+.jm-category-card__item-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #da2e75;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* 子类名称 */
+.jm-category-card__item-name {
+  font-size: 13px;
+  font-family: "Noto Serif SC", Georgia, serif;
+  color: #333;
+  letter-spacing: 0.04em;
+}
+
+/* content/JmProductCard/styles.css */
+/**
+ * JmProductCard Styles
+ * 商品卡片组件样式
+ */
+
+/* ========== 商品卡片 ========== */
+.jm-product-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 封面区域 */
+.jm-product-card__cover {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+.jm-product-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.jm-product-card:hover .jm-product-card__cover img {
+  transform: scale(1.02);
+}
+
+.jm-product-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 徽章 */
+.jm-product-card__badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  background: rgba(166, 186, 67, 0.9);
+  color: #fff;
+  font-size: 10px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* 售罄遮罩 */
+.jm-product-card__soldout {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* 商品信息 */
+.jm-product-card__info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.jm-product-card__name {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: #1a1a1a;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/* 价格 */
+.jm-product-card__price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.jm-product-card__price-current {
+  font-size: 16px;
+  font-weight: 600;
+  color: #da2e75;
+}
+
+.jm-product-card__price-original {
+  font-size: 12px;
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+/* 加入购物车按钮 — 描边 chip 风格,跟随 .jm-product-card 上的 --product-theme-color */
+.jm-product-card__add {
+  width: 100%;
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--product-theme-color, #da2e75);
+  border: 1px solid var(--product-theme-color, #da2e75);
+  border-radius: 16px;            /* 芯片圆角 */
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+  margin-top: auto;
+}
+
+.jm-product-card__add:active {
+  background: color-mix(in srgb, var(--product-theme-color, #da2e75) 8%, transparent);
+}
+
+.jm-product-card__add:disabled {
+  color: #ccc;
+  border-color: #ccc;
+  background: transparent;
+  cursor: not-allowed;
+}
+
+/* ========== 商品网格 ========== */
+.jm-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* 加载状态 */
+.jm-product-grid--loading,
+.jm-product-grid--error,
+.jm-product-grid--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+  text-align: center;
+}
+
+.jm-product-grid__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #da2e75;
+  border-radius: 50%;
+  animation: jm-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes jm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.jm-product-grid__empty-icon {
+  margin-bottom: 12px;
+  color: #ccc;
+}
+/* content/JmServiceCarousel/styles.css */
+/* 服务卡片样式 - 简洁边框 */
+
+.jm-service-card {
+  /* 容器基本样式（来自原 inline style，值未变） */
+  height: auto;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #da2e75;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 16px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.97);
+  transform-origin: center center;
+  transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 激活态：放大 + 边框高亮 */
+.jm-service-card.is-active {
+  transform: scale(1.02);
+  border-color: #da2e75;
+}
+
+/* 圆点指示器 */
+.jm-dot-indicator button {
+  transition: all 0.3s ease;
+}
+
+/* 分类标签线条动画 */
+.jm-category-line {
+  transition: width 0.4s ease-out, opacity 0.3s ease;
+}
+
+/* content/JmServiceCateList/styles.css */
+/**
+ * JmServiceCateList 样式
+ * 服务分类列表组件（书卷·竖式目录）
+ */
+
+/* ===== 卷列表 ===== */
+.jm-service-cate-list__scrolls {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 16px 16px;
+  /* 移除了 border-top，与页眉底边框合并 */
+}
+
+/* 单卷 */
+.jm-service-cate-list__scroll {
+  position: relative;
+  cursor: pointer;
+}
+
+/* 卷头部 */
+.jm-service-cate-list__scroll-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 18px 17px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.15s ease;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: inherit;
+}
+
+/* 选中时，标题距上边框 10px */
+.jm-service-cate-list__scroll--open > .jm-service-cate-list__scroll-header {
+  padding-top: 28px;
+}
+
+/* 选中分类标题在 mini-nav 上方显示 */
+.jm-service-cate-list__scroll--open > .jm-service-cate-list__scroll-header {
+  position: relative;
+  z-index: 90;
+}
+
+.jm-service-cate-list__scroll:active .jm-service-cate-list__scroll-header {
+  background: rgba(217, 78, 61, 0.03);
+}
+
+/* 装饰线和序号之间10px间距 */
+.jm-service-cate-list__scroll-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 10px;
+  z-index: 2;
+}
+
+/* 展开时居中文字 */
+.jm-service-cate-list__scroll--open > .jm-service-cate-list__scroll-header {
+  padding-top: 28px;
+}
+
+.jm-service-cate-list__scroll-num {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 11px;
+  color: #da2e75;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.jm-service-cate-list__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+  margin-left: 15px;
+}
+
+.jm-service-cate-list__scroll-title {
+  font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.jm-service-cate-list__scroll-count {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+/* 卷展开指示器 */
+.jm-service-cate-list__scroll-indicator {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  transition: color 0.2s ease, transform 0.3s ease;
+  margin-right: 4px;
+}
+
+.jm-service-cate-list__scroll--open .jm-service-cate-list__scroll-indicator {
+  color: #D94E3D;
+  transform: rotate(90deg);
+}
+
+/* ===== 展开的服务内容 ===== */
+.jm-service-cate-list__items {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jm-service-cate-list__scroll--open .jm-service-cate-list__items {
+  max-height: 2000px;
+}
+
+.jm-service-cate-list__items-inner {
+  padding: 8px 16px 16px 42px;
+}
+
+/* 服务条目 */
+.jm-service-cate-list__item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-radius: 4px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: inherit;
+}
+
+.jm-service-cate-list__item:last-child {
+  border-bottom: none;
+}
+
+.jm-service-cate-list__item:active {
+  background: rgba(217, 78, 61, 0.04);
+}
+
+.jm-service-cate-list__item-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #D4AF37;
+  margin-top: 8px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.jm-service-cate-list__item:active .jm-service-cate-list__item-dot {
+  transform: scale(1.5);
+}
+
+.jm-service-cate-list__item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.jm-service-cate-list__item-name {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+
+.jm-service-cate-list__item-desc {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.jm-service-cate-list__item-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.jm-service-cate-list__item-price {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #D94E3D;
+  white-space: nowrap;
+}
+
+.jm-service-cate-list__item-price--negotiable {
+  font-size: 11px;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.jm-service-cate-list__item-arrow {
+  font-size: 13px;
+  color: #ddd;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.jm-service-cate-list__item:active .jm-service-cate-list__item-arrow {
+  color: #D94E3D;
+  transform: translateX(2px);
+}
+
+/* ===== 入场动画 ===== */
+@keyframes v6FadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.jm-service-cate-list__scroll {
+  animation: v6FadeIn 0.4s ease both;
+}
+
+.jm-service-cate-list__scroll:nth-child(1) { animation-delay: 0.05s; }
+.jm-service-cate-list__scroll:nth-child(2) { animation-delay: 0.12s; }
+.jm-service-cate-list__scroll:nth-child(3) { animation-delay: 0.19s; }
+.jm-service-cate-list__scroll:nth-child(4) { animation-delay: 0.26s; }
+.jm-service-cate-list__scroll:nth-child(5) { animation-delay: 0.33s; }
+
+.jm-service-cate-list__item {
+  animation: v6FadeIn 0.3s ease both;
+}
+
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(1) { animation-delay: 0.2s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(2) { animation-delay: 0.25s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(3) { animation-delay: 0.3s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(4) { animation-delay: 0.35s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(5) { animation-delay: 0.4s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(6) { animation-delay: 0.45s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(7) { animation-delay: 0.5s; }
+.jm-service-cate-list__scroll:nth-child(1) .jm-service-cate-list__item:nth-child(8) { animation-delay: 0.55s; }
+
+/* ===== 分隔线 ===== */
+.jm-service-cate-list__divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 0;
+}
+
+/* ===== 加载态 ===== */
+.jm-service-cate-list__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.jm-service-cate-list__spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(217, 78, 61, 0.15);
+  border-top-color: #D94E3D;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== 分类导航芯片 ===== */
+.jm-service-cate-list__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 6px 16px;
+  background: #fafafa;
+  border-bottom: none;
+  animation: v6FadeIn 0.25s ease both;
+}
+
+.jm-service-cate-list__chip {
+  display: inline-block;
+  padding: 8px 6px;
+  border-radius: 20px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.04);
+  color: #999;
+  line-height: 1;
+  min-height: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.jm-service-cate-list__chip:active {
+  transform: scale(0.96);
+}
+
+.jm-service-cate-list__chip {
+  position: relative;
+}
+
+
+.jm-service-cate-list__chip--active {
+  border-color: #da2e75;
+  color: #666;
+  font-weight: 500;
+}
+
+.jm-service-cate-list__chip--active::before {
+  content: '››';
+  position: absolute;
+  right: 100%;
+  margin-right: 4px;
+  color: #da2e75;
+  font-size: 13px;
+  line-height: inherit;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===== 返回目录按钮 ===== */
+.jm-back-btn {
+  /* 重置所有继承样式 */
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 12px;
+  height: 28px;
+  border-radius: 14px;
+  border: 1.5px solid #da2e75;
+  background: transparent;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #da2e75;
+  cursor: pointer;
+  margin-top: 12px;
+  line-height: 1;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.jm-back-btn:active {
+  opacity: 0.7;
+}
+
+/* 返回按钮的左箭头(Gerogia 衬线 + 品牌色) */
+.jm-back-btn-arrow {
+  font-family: Georgia, serif;
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* services 页面顶层容器(基础布局,视觉统一在组件 CSS) */
+.jm-services-page {
+  /* height: 100dvh + overflow: hidden:
+     把整页锁在 viewport 内,禁止 body 滚动
+     原因:.jm-mm 内部已用 grid-template-rows 限定 row 高度,
+     subs 用 overflow-y: auto 自管滚动;若 page 可滚,用户在 subs 区
+     滚到边界后 wheel 会冒泡到 page,整行跟着滚 → 左侧 sticky 大卡看似"移动"
+     锁住 page 后,sticky 才有意义(subs 内部滚,row 不动,左卡钉在 row 顶) */
+  height: 100dvh;
+  overflow: hidden;
+  background: #fafafa;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+/* 搜索结果弹窗 */
+.jm-search-result-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: 80vw;
+  background: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 10001;
+}
+
+.jm-search-result-modal__title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.jm-search-result-modal__count {
+  font-size: 14px;
+  color: #666;
+}
+
+.jm-search-result-modal__hint {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+}
+
+/* ===== 预览区 - 极简产品目录 ===== */
+.jm-service-cate-list__preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.jm-service-cate-list__preview-item {
+  padding: 16px 12px 14px 16px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 左侧玫红竖线 - 只在每行左侧项 */
+.jm-service-cate-list__preview-item:nth-child(2n-1)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(to bottom, #da2e75, #f5a0c0);
+  border-radius: 2px;
+}
+
+.jm-service-cate-list__preview-item:active {
+  background: rgba(218, 46, 117, 0.04);
+}
+
+.jm-service-cate-list__preview-item-name {
+  font-weight: 500;
+}
+
+.jm-service-cate-list__preview-item-sub {
+  font-size: 11px;
+  color: #da2e75;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* ===== 空状态 ===== */
+.jm-service-cate-list__empty {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13px;
+  color: #bbb;
+  letter-spacing: 0.1em;
+}
+/* content/JmShopProductList/styles.css */
+/**
+ * JmShopProductList 样式
+ */
+
+.jm-shop-product-list {
+  padding: 0;
+}
+
+.jm-shop-product-list__loading,
+.jm-shop-product-list__error,
+.jm-shop-product-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vw;
+  padding: 40px 16px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.jm-shop-product-list__error {
+  color: #e10c6c;
+}
+
+.jm-shop-product-list__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #da2e75;
+  border-radius: 50%;
+  animation: shop-product-list-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes shop-product-list-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* content/JmTextBlock/styles.css */
+/**
+ * JmTextBlock Styles
+ * 文本块组件样式
+ */
+
+.jm-text-block {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.jm-text-block--left {
+  text-align: left;
+}
+
+.jm-text-block--center {
+  text-align: center;
+}
+
+.jm-text-block--right {
+  text-align: right;
+}
+
+.jm-text-block__title {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+.jm-text-block__title--sm { font-size: 14px; }
+.jm-text-block__title--base { font-size: 16px; }
+.jm-text-block__title--lg { font-size: 20px; }
+.jm-text-block__title--xl { font-size: 24px; }
+
+.jm-text-block__content {
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.jm-text-block__content--xs { font-size: 13px; }
+.jm-text-block__content--sm { font-size: 14px; }
+.jm-text-block__content--base { font-size: 16px; }
+.jm-text-block__content--lg { font-size: 18px; }
+
+/* content/JmYunshiDrawer/styles.css */
+/**
+ * JmYunshiDrawer 样式
+ * 运势内容底部抽屉
+ */
+
+/* ============================================================
+   抽屉主体
+   ============================================================ */
+
+.jm-yunshi-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: #fafafa;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(calc(var(--drawer-translate, 100) * 1%));
+  transition: transform 0.3s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.jm-yunshi-drawer--open {
+  transform: translateY(0);
+}
+
+.jm-yunshi-drawer--dragging {
+  transition: none !important;
+}
+
+/* ============================================================
+   手柄
+   ============================================================ */
+
+.jm-yunshi-drawer__handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 8px;
+  cursor: grab;
+}
+
+.jm-yunshi-drawer__handle-bar {
+  width: 36px;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   头部
+   ============================================================ */
+
+.jm-yunshi-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.jm-yunshi-drawer__title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jm-yunshi-drawer__zodiac-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+}
+
+.jm-yunshi-drawer__title {
+  font-family: 'Noto Serif SC', 'cwTeXMing', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.jm-yunshi-drawer__close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+  padding: 0;
+}
+
+.jm-yunshi-drawer__close:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   内容区
+   ============================================================ */
+
+.jm-yunshi-drawer__content {
+  padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  animation: yunshiFadeIn 0.3s ease both;
+}
+
+@keyframes yunshiFadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================================
+   Tab 切换
+   ============================================================ */
+
+.jm-yunshi-drawer__tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.jm-yunshi-drawer__tab {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #6b6b6b;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-yunshi-drawer__tab:active {
+  opacity: 0.8;
+}
+
+.jm-yunshi-drawer__tab--active {
+  color: #fff;
+}
+
+/* ============================================================
+   十神卡片
+   ============================================================ */
+
+.jm-yunshi-drawer__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jm-yunshi-drawer__card {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.jm-yunshi-drawer__card:active {
+  transform: scale(0.98);
+}
+
+.jm-yunshi-drawer__card-bar {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.jm-yunshi-drawer__card-body {
+  flex: 1;
+  padding: 12px;
+}
+
+.jm-yunshi-drawer__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.jm-yunshi-drawer__card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6b6b;
+}
+
+.jm-yunshi-drawer__card-gan {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.jm-yunshi-drawer__card-ganzi {
+  font-size: 12px;
+  color: #999;
+}
+
+.jm-yunshi-drawer__card-wuxing {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.jm-yunshi-drawer__card-row {
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.jm-yunshi-drawer__card-label {
+  color: #999;
+}
+
+.jm-yunshi-drawer__card-shishen {
+  font-weight: 600;
+}
+
+/* ============================================================
+   属相说明
+   ============================================================ */
+
+.jm-yunshi-drawer__zodiac-info {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 16px;
+  font-family: 'Noto Serif SC', 'cwTeXMing', Georgia, serif;
+}
+
+.jm-yunshi-drawer__zodiac-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.jm-yunshi-drawer__zodiac-desc {
+  font-size: 13px;
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   遮罩层
+   ============================================================ */
+
+.jm-yunshi-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.jm-yunshi-drawer__backdrop--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* content/JmYunshiResult/styles.css */
+/**
+ * JmYunshiResult 样式
+ * 运势结果展示组件样式
+ */
+
+.jm-yunshi-result {
+  animation: yunshiResultFadeIn 0.3s ease both;
+}
+
+@keyframes yunshiResultFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.jm-yunshi-result__card {
+  transition: transform 0.2s ease;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+.jm-yunshi-result__card:active {
+  transform: scale(0.98);
+}
+
+.jm-yunshi-result__tabs {
+  overflow: hidden;
+}
+
+.jm-yunshi-result__tab {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-yunshi-result__tab:active {
+  opacity: 0.8;
+}
+
+/* 属相说明卡片 */
+.jm-yunshi-result__zodiac-info {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  font-family: 'Noto Serif SC', 'cwTeXMing', Georgia, serif;
+}
+/* content/JmZodiacGrid/styles.css */
+/**
+ * JmZodiacGrid 样式
+ * 属相网格组件 - 两行6列布局
+ */
+
+.jm-zodiac-grid-wrapper {
+  /* container wrapper */
+}
+
+.jm-zodiac-grid__hint {
+  animation: hintFadeIn 0.3s ease both;
+  text-align: left;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  position: relative;
+  border-left: 3px solid #fb5c3e;
+}
+
+.jm-zodiac-grid__hint p {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+@keyframes hintFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(0.85);
+  }
+}
+
+.jm-zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 8px;
+  padding: 4px 0;
+}
+
+.jm-zodiac-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  background: transparent;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease;
+}
+
+.jm-zodiac-grid__item:active {
+  transform: scale(0.95);
+}
+
+/* 父级 __item 选中态不显示任何样式,视觉反馈全部由 __bg 的 1px 外框承担 */
+.jm-zodiac-grid__item--active {
+  background: transparent;
+}
+
+/* 选中态:仅在背景框上叠 1px 实色矩形外框,无背景、无光环、无缩放、无文字变色
+   颜色取自 item 上的 --zodiac-active-color(组件传入,默认品牌橙)
+   **属相图本身保持原色**,**背景框保持白色**,仅外框线提示选中 */
+.jm-zodiac-grid__item--active .jm-zodiac-grid__bg {
+  border: 1px solid var(--zodiac-active-color, #fb5c3e);
+  background-color: #ffffff;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+.jm-zodiac-grid__icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jm-zodiac-grid__bg {
+  width: 72px;
+  height: 80px;                 /* 竖向矩形:高比宽多 8px */
+  border-radius: 8px;          /* 软矩形,非圆 */
+  background-color: #ffffff;
+  border: 1px solid transparent;  /* 默认透明边框,选中态变色(占位避免布局抖动) */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.jm-zodiac-grid__img {
+  width: 64px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 4px;          /* 跟随父级软矩形,不再强制圆形 */
+}
+
+.jm-zodiac-grid__emoji {
+  font-size: 36px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jm-zodiac-grid__item:active .jm-zodiac-grid__svg {
+  transform: scale(0.92);
+}
+
+.jm-zodiac-grid__label {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+/* 入场动画 */
+.jm-zodiac-grid__item {
+  animation: zodiacFadeIn 0.3s ease both;
+}
+
+.jm-zodiac-grid__item:nth-child(1) { animation-delay: 0.02s; }
+.jm-zodiac-grid__item:nth-child(2) { animation-delay: 0.04s; }
+.jm-zodiac-grid__item:nth-child(3) { animation-delay: 0.06s; }
+.jm-zodiac-grid__item:nth-child(4) { animation-delay: 0.08s; }
+.jm-zodiac-grid__item:nth-child(5) { animation-delay: 0.10s; }
+.jm-zodiac-grid__item:nth-child(6) { animation-delay: 0.12s; }
+.jm-zodiac-grid__item:nth-child(7) { animation-delay: 0.14s; }
+.jm-zodiac-grid__item:nth-child(8) { animation-delay: 0.16s; }
+.jm-zodiac-grid__item:nth-child(9) { animation-delay: 0.18s; }
+.jm-zodiac-grid__item:nth-child(10) { animation-delay: 0.20s; }
+.jm-zodiac-grid__item:nth-child(11) { animation-delay: 0.22s; }
+.jm-zodiac-grid__item:nth-child(12) { animation-delay: 0.24s; }
+
+@keyframes zodiacFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* functional/JmButton/styles.css */
+/**
+ * JmButton Styles
+ * 按钮组件样式 - 参考 mt.html 简单效果，加一点质感
+ */
+
+/* 基础按钮 */
+.jm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+/* 禁用状态 */
+.jm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 尺寸 */
+.jm-btn--sm {
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: 9999px;
+  min-height: 34px;
+}
+
+.jm-btn--md {
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 9999px;
+  min-height: 38px;
+}
+
+.jm-btn--lg {
+  padding: 12px 32px;
+  font-size: 16px;
+  border-radius: 9999px;
+  min-height: 44px;
+}
+
+/* 主要按钮 */
+.jm-btn--primary {
+  background: var(--page-theme-color, #da5343);
+  color: #ffffff;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--page-theme-color, #da5343) 25%, transparent);
+  transition: all 0.25s ease;
+}
+
+.jm-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--page-theme-color, #da5343) 35%, transparent);
+  transform: translateY(-1px);
+}
+
+.jm-btn--primary:active:not(:disabled) {
+  filter: brightness(0.92);
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--page-theme-color, #da5343) 30%, transparent);
+  transform: translateY(0);
+}
+
+/* 次要按钮 */
+.jm-btn--secondary {
+  background: #2f748a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(47, 116, 138, 0.3);
+}
+
+.jm-btn--secondary:hover:not(:disabled) {
+  background: #3a849a;
+  box-shadow: 0 4px 14px rgba(47, 116, 138, 0.4);
+}
+
+.jm-btn--secondary:active:not(:disabled) {
+  opacity: 0.85;
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(47, 116, 138, 0.25);
+}
+
+/* 边框按钮 */
+.jm-btn--outline {
+  background: transparent;
+  color: #da5343;
+  border: 1.5px solid #da5343;
+  box-shadow: none;
+}
+
+.jm-btn--outline:hover:not(:disabled) {
+  background: rgba(218, 83, 67, 0.08);
+}
+
+.jm-btn--outline:active:not(:disabled) {
+  background: rgba(218, 83, 67, 0.15);
+  transform: scale(0.97);
+}
+
+/* 幽灵按钮 */
+.jm-btn--ghost {
+  background: transparent;
+  color: #666666;
+  box-shadow: none;
+}
+
+.jm-btn--ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333333;
+}
+
+.jm-btn--ghost:active:not(:disabled) {
+  background: rgba(0, 0, 0, 0.08);
+  transform: scale(0.97);
+}
+
+/* 全宽 */
+.jm-btn--full-width {
+  width: 100%;
+}
+
+/* functional/JmCartDrawer/styles.css */
+/**
+ * JmCartDrawer Styles
+ * 购物车抽屉组件样式
+ */
+
+/* ========== 购物车遮罩层 ========== */
+.jm-cart-drawer__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========== 购物车内容 ========== */
+.jm-cart-drawer__content {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 360px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 201;
+  animation: slideIn 300ms ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* ========== 头部 ========== */
+.jm-cart-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.jm-cart-drawer__header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.jm-cart-drawer__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jm-cart-drawer__header button:hover {
+  color: #666;
+}
+
+/* ========== 购物车主体 ========== */
+.jm-cart-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+/* 空状态 */
+.jm-cart-drawer__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}
+
+.jm-cart-drawer__empty p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* ========== 购物车项 ========== */
+.jm-cart-drawer__item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.jm-cart-drawer__item-cover {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.jm-cart-drawer__item-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-cart-drawer__item-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #ccc;
+}
+
+.jm-cart-drawer__item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.jm-cart-drawer__item-info h4 {
+  margin: 0;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1a1a1a;
+}
+
+.jm-cart-drawer__item-price {
+  font-size: 14px;
+  color: #da2e75;
+  font-weight: 500;
+}
+
+/* 操作按钮 */
+.jm-cart-drawer__item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+}
+
+.jm-cart-drawer__item-actions button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #666;
+}
+
+.jm-cart-drawer__item-actions button:hover {
+  background: #f5f5f5;
+}
+
+.jm-cart-drawer__item-actions span {
+  min-width: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.jm-cart-drawer__item-delete {
+  color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+  font-size: 11px !important;
+}
+
+/* ========== 底部结算 ========== */
+.jm-cart-drawer__footer {
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.jm-cart-drawer__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.jm-cart-drawer__total span:first-child {
+  color: #666;
+  font-size: 14px;
+}
+
+.jm-cart-drawer__total-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #da2e75;
+}
+
+.jm-cart-drawer__checkout {
+  width: 100%;
+  padding: 14px;
+  background: #da2e75;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.jm-cart-drawer__checkout:active {
+  background: #c43d65;
+}
+
+/* ========== 悬浮购物车按钮 ========== */
+.jm-cart-float {
+  position: fixed;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  right: 16px;
+  width: 52px;
+  height: 52px;
+  background: #da2e75;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(218, 46, 117, 0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.jm-cart-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(218, 46, 117, 0.5);
+}
+
+.jm-cart-float:active {
+  transform: scale(0.95);
+}
+
+.jm-cart-float__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  background: #ff4d4f;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-weight: 500;
+}
+/* functional/JmLunarDate/styles.css */
+/**
+ * JmLunarDate Styles
+ * 万年历组件样式
+ *
+ * 布局A（极简一行）：5月5日 · 己卯日 · 宜嫁娶
+ */
+
+.jm-lunar-date {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── 布局A：一行式 ── */
+.jm-lunar-date--inline {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.jm-lunar-date__date {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.jm-lunar-date__sep {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.6;
+  margin: 0 1px;
+  line-height: 1;
+}
+
+.jm-lunar-date__ganzhi {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.jm-lunar-date__yi {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* functional/JmSearchDrawer/styles.css */
+/* JmSearchDrawer 搜索弹窗样式 */
+
+.jm-search-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 遮罩层 */
+.jm-search-drawer__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* 弹窗内容 */
+.jm-search-drawer__content {
+  position: relative;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease-out;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 搜索头部 */
+.jm-search-drawer__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.jm-search-drawer__input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.jm-search-drawer__icon {
+  width: 18px;
+  height: 18px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.jm-search-drawer__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  min-width: 0;
+}
+
+.jm-search-drawer__input::placeholder {
+  color: #bbb;
+}
+
+.jm-search-drawer__clear {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.jm-search-drawer__clear svg {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+}
+
+.jm-search-drawer__cancel {
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 区块 */
+.jm-search-drawer__section {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.jm-search-drawer__section:last-child {
+  border-bottom: none;
+}
+
+.jm-search-drawer__section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.jm-search-drawer__section-title svg {
+  width: 14px;
+  height: 14px;
+}
+
+.jm-search-drawer__clear-btn {
+  margin-left: auto;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  color: #da2e75;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 热门标签 */
+.jm-search-drawer__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.jm-search-drawer__tag {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jm-search-drawer__tag:active {
+  background: #f5f5f5;
+  border-color: #da2e75;
+  color: #da2e75;
+}
+
+/* 历史搜索 */
+.jm-search-drawer__history {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jm-search-drawer__history-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.jm-search-drawer__history-item:active {
+  background: #f5f5f5;
+}
+
+.jm-search-drawer__history-icon {
+  width: 16px;
+  height: 16px;
+  color: #bbb;
+  flex-shrink: 0;
+}
+
+.jm-search-drawer__history-text {
+  flex: 1;
+  font-size: 15px;
+  color: #333;
+}
+
+.jm-search-drawer__history-remove {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.jm-search-drawer__history-item:active .jm-search-drawer__history-remove {
+  opacity: 1;
+}
+
+.jm-search-drawer__history-remove svg {
+  width: 14px;
+  height: 14px;
+  color: #999;
+}
+
+/* navigation/JmBookingHeader/styles.css */
+/**
+ * JmBookingHeader Styles
+ * "预约咨询"页面专用页眉样式
+ */
+
+.jm-booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px 0 2px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+  background: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ===== 固定定位 ===== */
+.jm-booking-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+}
+
+/* ===== 左侧：竖线 + 徽章 + 标题 + 口号 ===== */
+.jm-booking-header__left {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+/* 竖线 - 填充效果 */
+.jm-booking-header__divider {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  min-height: 40px;
+}
+
+/* 徽章 + 文字组 */
+.jm-booking-header__badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* SVG 徽章 */
+.jm-booking-header__badge {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* 标题 + 口号 */
+.jm-booking-header__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1;
+}
+
+.jm-booking-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.jm-booking-header__slogan {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 1px;
+}
+
+/* ===== 右侧：搜索栏 + 用户头像 ===== */
+.jm-booking-header__right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 搜索栏 */
+.jm-booking-header__search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 27px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.jm-booking-header__search:active {
+  background: #e5e5e5;
+}
+
+.jm-booking-header__search-icon {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.jm-booking-header__search-text {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.jm-booking-header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.jm-booking-header__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-booking-header__avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(47, 116, 138, 0.3);
+  color: #fff;
+}
+/* navigation/JmCategoryTabs/styles.css */
+/**
+ * JmCategoryTabs 样式
+ * 分类标签切换组件
+ *
+ * 设计规范:
+ * - 字号 ≥ 15px（更大更清晰）
+ * - 胶囊式标签 + 底部滑轨指示器
+ * - 切换动画: 指示器滑行 + 文字颜色渐变
+ */
+
+.jm-category-tabs {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  /* 顶部间距由页面 layout 控制(knowledge 页 5px),tabs 不再加,避免叠加 */
+  padding: 0 16px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: #fafafa;
+}
+
+.jm-category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* (已删除底部滑轨指示器 .jm-category-tabs__slider — chip 描边本身就是选中反馈) */
+
+/* chip 风格 tab:描边圆角矩形(透明底 + 边框)
+   不受 44px 最小按钮约束,作为内容型 chip,高度由内边距+字号决定 */
+.jm-category-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 上下 5px + 13px 字号 ≈ 24px 高(明确 min-height: auto 突破按钮最小高度约定) */
+  min-height: auto;
+  height: auto;
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  color: #666;
+  transition: border-color 200ms ease,
+              color 200ms ease,
+              background-color 200ms ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-category-tabs__tab:hover {
+  color: #333;
+  border-color: #bbb;
+}
+
+.jm-category-tabs__tab:active {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* 激活态:仅描边+文字换色,保持透明底(不填充),与其他 chip 形成统一调性 */
+.jm-category-tabs__tab--active {
+  background: transparent;
+  border-color: var(--tab-color, #da2e75);
+  color: var(--tab-color, #da2e75);
+  font-weight: 500;
+}
+
+.jm-category-tabs__tab--active:hover {
+  background: transparent;
+  border-color: var(--tab-color, #da2e75);
+  color: var(--tab-color, #da2e75);
+}
+
+.jm-category-tabs__tab--active:active {
+  background: color-mix(in srgb, var(--tab-color, #da2e75) 8%, transparent);
+}
+
+/* navigation/JmFooter/styles.css */
+/**
+ * JmFooter Styles
+ * 页脚组件样式
+ */
+
+.jm-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 56px;
+  padding: 0 8px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.jm-footer--icon-top-text-bottom {
+  height: 64px;
+  padding-top: 8px;
+}
+
+.jm-footer__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  padding: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  position: relative;
+}
+
+.jm-footer__tab:active {
+  opacity: 0.6;
+}
+
+.jm-footer__tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #6b6b6b;
+  transition: color 0.2s ease;
+}
+
+.jm-footer__tab-label {
+  font-size: 12px;
+  color: #6b6b6b;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* 选中态 */
+.jm-footer__tab--active {
+  position: relative;
+}
+
+.jm-footer__tab--active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--tab-active-color, #D94E3D);
+  border-radius: 1px;
+}
+
+/* 选中态颜色继承内联样式 */
+.jm-footer__tab--active .jm-footer__tab-icon,
+.jm-footer__tab--active .jm-footer__tab-label {
+  color: inherit;
+}
+/* navigation/JmHeader/styles.css */
+/**
+ * JmHeader Styles
+ * 页头组件样式
+ */
+
+.jm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  padding: 0 16px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-header--landing {
+  background: #fafafa;
+}
+
+.jm-header--tool {
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.jm-header--minimal {
+  background: transparent;
+}
+
+.jm-header--transparent {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.jm-header--largeTitle {
+  background: #fafafa;
+  height: 52px;
+}
+
+.jm-header--search {
+  background: #ffffff;
+  height: 52px;
+}
+
+/* ===== 固定定位（通用安全区处理） ===== */
+.jm-header--fixed,
+.jm-header--tool.jm-header--fixed,
+.jm-header--landing.jm-header--fixed,
+.jm-header--minimal.jm-header--fixed,
+.jm-header--transparent.jm-header--fixed,
+.jm-header--largeTitle.jm-header--fixed,
+.jm-header--search.jm-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+}
+
+.jm-header__title {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.jm-header__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.jm-header__btn:active {
+  opacity: 0.6;
+}
+
+/* navigation/JmKnowledgeHeader/styles.css */
+/**
+ * JmKnowledgeHeader Styles
+ * "开心园地"知识页面专用页眉样式
+ */
+
+.jm-knowledge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px 0 2px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+  background: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ===== 固定定位 ===== */
+.jm-knowledge-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+}
+
+/* ===== 左侧：竖线 + 徽章 + 标题 + 口号 ===== */
+.jm-knowledge-header__left {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+/* 竖线 - 填充效果 */
+.jm-knowledge-header__divider {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  min-height: 40px;
+}
+
+/* 徽章 + 文字组 */
+.jm-knowledge-header__badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* SVG 徽章 */
+.jm-knowledge-header__badge {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* 标题 + 口号 */
+.jm-knowledge-header__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1;
+}
+
+.jm-knowledge-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.jm-knowledge-header__slogan {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 1px;
+}
+
+/* ===== 右侧：搜索栏 + 用户头像 ===== */
+.jm-knowledge-header__right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 搜索栏 */
+.jm-knowledge-header__search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.jm-knowledge-header__search:active {
+  background: #e5e5e5;
+}
+
+.jm-knowledge-header__search-icon {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.jm-knowledge-header__search-text {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* 用户头像 */
+.jm-knowledge-header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.jm-knowledge-header__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-knowledge-header__avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(47, 116, 138, 0.3);
+  color: #fff;
+}
+
+/* navigation/JmOursHeader/styles.css */
+/**
+ * JmOursHeader Styles
+ * "我们的服务"专用页眉样式
+ */
+
+.jm-ours-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px 0 2px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+  background: #fafafa;
+}
+
+/* ===== 固定定位 ===== */
+.jm-ours-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+}
+
+/* ===== 左侧：竖线 + 徽章 + 标题 + 口号 ===== */
+.jm-ours-header__left {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+/* 竖线 - 填充效果 */
+.jm-ours-header__divider {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  min-height: 40px;
+}
+
+/* 徽章 + 文字组 */
+.jm-ours-header__badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 文字和徽章之间加大间距 */
+  min-width: 0;
+}
+
+/* SVG 徽章 */
+.jm-ours-header__badge {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* 标题 + 口号 */
+.jm-ours-header__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1;
+}
+
+.jm-ours-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.jm-ours-header__slogan {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 1px;
+}
+
+/* ===== 右侧：搜索栏 + 用户头像 ===== */
+.jm-ours-header__right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* 文字和头像之间间距 */
+}
+
+/* 搜索栏 */
+.jm-ours-header__search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.jm-ours-header__search:active {
+  background: #e5e5e5;
+}
+
+.jm-ours-header__search-icon {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.jm-ours-header__search-text {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.jm-ours-header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.jm-ours-header__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-ours-header__avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(218, 46, 117, 0.3);
+  color: #fff;
+}
+
+/* navigation/JmServerNav/styles.css */
+.jm-server-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 0;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jm-server-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.jm-server-nav__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 16px;
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-size: 14px;
+  color: #da2e75;
+  white-space: nowrap;
+  cursor: pointer;
+  min-height: 24px;
+  transition: color 0.2s ease;
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.jm-server-nav__tab:active {
+  opacity: 0.7;
+}
+
+.jm-server-nav__tab--active {
+  color: #da2e75;
+  font-weight: 400;
+  background: rgba(218, 46, 117, 0.20);
+  border-radius: 16px;
+}
+
+.jm-server-nav__tab--active .jm-server-nav__icon {
+  color: #da2e75;
+}
+
+.jm-server-nav__tab:not(:last-child):not(.jm-server-nav__tab--active) {
+  border-right: 1px solid #e5e5e5;
+}
+
+/* ===== 图标+文字模式 ===== */
+.jm-server-nav--with-icons {
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.jm-server-nav--with-icons .jm-server-nav__tab {
+  flex-direction: column;
+  padding: 4px 16px;
+  min-width: 72px;
+  min-height: auto;
+}
+
+.jm-server-nav__icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jm-server-nav__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.jm-server-nav__text {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.jm-server-nav--with-icons .jm-server-nav__tab--active {
+  background: none;
+}
+
+/* navigation/JmYunshiHeader/styles.css */
+/**
+ * JmYunshiHeader Styles
+ * "运势解读"页面专用页眉样式
+ */
+
+.jm-yunshi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px 0 2px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+  background: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ===== 固定定位 ===== */
+.jm-yunshi-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+}
+
+/* ===== 左侧：徽章 + 标题 + 口号 ===== */
+.jm-yunshi-header__left {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+/* 徽章 + 文字组 */
+.jm-yunshi-header__badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* SVG 徽章 */
+.jm-yunshi-header__badge {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* 标题 + 口号 */
+.jm-yunshi-header__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1;
+}
+
+.jm-yunshi-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.jm-yunshi-header__slogan {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 1px;
+}
+
+/* ===== 右侧：搜索栏 + 用户头像 ===== */
+.jm-yunshi-header__right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 搜索栏 */
+.jm-yunshi-header__search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 27px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.jm-yunshi-header__search:active {
+  background: #e5e5e5;
+}
+
+.jm-yunshi-header__search-icon {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.jm-yunshi-header__search-text {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.jm-yunshi-header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.jm-yunshi-header__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-yunshi-header__avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(255, 173, 79, 0.3);
+  color: #fff;
+}
+/* visual/BgGraphics/styles.css */
+/**
+ * BgGraphics Styles
+ * 背景装饰组件样式
+ */
+
+.jm-bg-graphics {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.jm-bg-graphics--full {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.jm-bg-graphics--section {
+  top: 0;
+  left: 0;
+  width: 132px;
+  height: auto;
+}
+
+.jm-bg-graphics__img {
+  width: 132px;
+  height: auto;
+  display: block;
+}
+
+.jm-bg-graphics__img--blur {
+  filter: blur(var(--jm-blur, 0px)) drop-shadow(0 0 8px rgba(139, 42, 42, 0.5));
+}
+
+/* 动画叶子 */
+.jm-animation-breathe .leaf {
+  transform-origin: 95px 34px;
+  animation: jm-breathe 3s ease-in-out infinite;
+}
+
+/* 手部摇晃 */
+.jm-animation-skew #branches {
+  transform-origin: center bottom;
+  animation: jm-skew 3s ease-in-out infinite;
+}
+
+/* 动画类 */
+.jm-animation-breathe {
+  animation: jm-breathe 3s ease-in-out infinite;
+}
+
+.jm-animation-float {
+  animation: jm-float 3s ease-in-out infinite;
+}
+
+.jm-animation-skew {
+  animation: jm-skew 3s ease-in-out infinite;
+}
+
+.jm-animation-pulse {
+  animation: jm-pulse 2s ease-in-out infinite;
+}
+
+/* 关键帧动画 */
+@keyframes jm-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+}
+
+@keyframes jm-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes jm-skew {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(28deg); }
+}
+
+@keyframes jm-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes jm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* visual/JmAnimatedGraphic/styles.css */
+/**
+ * JmAnimatedGraphic Styles
+ * 动画图形组件样式
+ */
+
+.jm-animated-graphic {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.jm-animated-graphic svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 呼吸动画 */
+.jm-animation-breathe {
+  animation: jm-breathe var(--jm-duration, 3s) ease-in-out infinite;
+}
+
+@keyframes jm-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+}
+
+/* 浮动动画 */
+.jm-animation-float {
+  animation: jm-float var(--jm-duration, 4s) ease-in-out infinite;
+}
+
+@keyframes jm-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 摇摆动画 */
+.jm-animation-skew {
+  animation: jm-skew var(--jm-duration, 3s) ease-in-out infinite;
+}
+
+@keyframes jm-skew {
+  0%, 100% { transform: skewX(0deg); }
+  25% { transform: skewX(5deg); }
+  75% { transform: skewX(-5deg); }
+}
+
+/* 脉冲动画 */
+.jm-animation-pulse {
+  animation: jm-pulse var(--jm-duration, 2s) ease-in-out infinite;
+}
+
+@keyframes jm-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 旋转动画 */
+.jm-animation-rotate {
+  animation: jm-rotate var(--jm-duration, 8s) linear infinite;
+}
+
+@keyframes jm-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 闪光动画 */
+.jm-animation-shimmer {
+  animation: jm-shimmer var(--jm-duration, 3s) ease-in-out infinite;
+}
+
+@keyframes jm-shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+/* visual/JmLeafLogo/styles.css */
+.jm-leaf-logo { display: block; }
+.jm-leaf-logo .leaf {  animation: leafFloat 3s ease-in-out infinite alternate;transform-origin: center; }
+@keyframes leafFloat {
+  0% { transform: scale(0.92); }
+  100% { transform: scale(1.053); }
+}
+
+/* visual/JmNinePalace/styles.css */
+.jm-nine-palace {
+  position: relative;
+  width: 241px;
+  height: 241px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.jm-nine-palace__cell {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  box-sizing: border-box;
+}
+.jm-nine-palace__cell.visible {
+  opacity: 1;
+}
+.jm-nine-palace__symbol {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1px;
+  font-family: 'Noto Serif SC', serif;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.jm-nine-palace__main {
+  font-family: 'Noto Sans SC','PingFang SC',sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.jm-nine-palace__main.show { opacity: 1; }
+.jm-nine-palace__sub {
+  font-family: 'Noto Sans SC','PingFang SC',sans-serif;
+  font-size: 10px;
+  color: inherit;
+  margin-top: 0px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.jm-nine-palace__sub.show { opacity: 1; }
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: #171717;
+    --color-background: #fafafa;
+
+    /* 品牌色系 */
+    --color-brand-primary: #D94E3D;
+    --color-brand-secondary: #da2e75;
+    --color-brand-accent: #ffad4f;
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+
+    /* 移动端字体系统 */
+    --font-size-xs: clamp(0.75rem, 2.4vw, 0.875rem);
+    --font-size-sm: clamp(0.8125rem, 2.667vw, 0.9375rem);
+    --font-size-base: clamp(1rem, 3.2vw, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 3.733vw, 1.3125rem);
+    --font-size-xl: clamp(1.25rem, 4.267vw, 1.5rem);
+    --font-size-2xl: clamp(1.5rem, 5.333vw, 1.75rem);
+    --font-size-3xl: clamp(1.75rem, 6.4vw, 2rem);
+
+    --leading-tight: 1.3;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.8;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background-color: #fafafa;
+    color: #171717;
+    /* 文字渲染优化 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* 中文行高优化 */
+    line-height: 1.6;
+    /* 字间距微调 */
+    letter-spacing: 0.01em;
+  }
+
+  /* 正文段落阅读舒适度 */
+  p, article, .prose {
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    /* 段落间距 */
+    margin-bottom: 1em;
+  }
+
+  /* 标题样式 */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    letter-spacing: 0em;
+  }
+
+  /* 触摸目标最小尺寸 */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 图片处理 */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 禁用选中色 */
+  ::selection {
+    background-color: rgba(217, 78, 61, 0.2);
+    color: inherit;
+  }
+}
+
+/* ============================================================
+   页面样式（由 styles.css 合并而来）
+   ============================================================ */
+
+/* ---------- 知识园地页面 ---------- */
+
+.jm-knowledge-page {
+  min-height: 100vh;
+  background: #fafafa;
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+}
+
+.knowledge-page__content {
+  padding: 0 16px;
+  min-height: 50vh;
+}
+
+.knowledge-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.knowledge-page__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #2f748a;
+  border-radius: 50%;
+  animation: knowledge-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes knowledge-spin {
+  to { transform: rotate(360deg); }
+}
+
+.knowledge-page__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.knowledge-page__error button {
+  margin-top: 12px;
+  padding: 8px 24px;
+  background: #2f748a;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.knowledge-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.knowledge-page__empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.knowledge-page__grid {
+  display: grid;
+  /* minmax(0, 1fr) + 子项 max-width 双重保险,确保 2 列绝不退化成 1 列 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-bottom: 20px;
+}
+
+/* 强制 grid 子项最大宽度 = 容器一半 - 半个 gap,
+   兜底某些情况(如子项里有更宽内容把网格挤爆) */
+.knowledge-page__grid > * {
+  max-width: 100%;                 /* 在 grid 单元内,fill 整个 1/2 列 */
+  min-width: 0;                    /* 配合 minmax(0, 1fr),允许被压缩 */
+}
+
+/* ---------- 幸运商城页面 ---------- */
+
+.jm-shop-page {
+  min-height: 100vh;
+  background: #fafafa;
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+}
+
+.jm-shop-banner {
+  margin: 12px 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 120px;
+}
+
+.jm-shop-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-shop-banner__text {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.jm-shop-banner__text h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.jm-shop-content {
+  padding: 0 16px;
+}
+
+.jm-shop-loading,
+.jm-shop-empty,
+.jm-shop-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.jm-shop-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #da2e75;
+  border-radius: 50%;
+  animation: shop-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes shop-spin {
+  to { transform: rotate(360deg); }
+}
+
+.jm-shop-empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* ---------- 预览弹窗（知识园地） ---------- */
+
+.jm-preview-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: preview-fade-in 200ms ease;
+}
+
+@keyframes preview-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jm-preview-modal__content {
+  width: 100%;
+  max-width: 360px;
+  max-height: 85vh;
+  background: #fff;
+  border-radius: 16px;
+  overflow-y: auto;
+  position: relative;
+  animation: preview-scale-in 300ms ease;
+}
+
+@keyframes preview-scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.jm-preview-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jm-preview-modal__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.jm-preview-modal__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jm-preview-modal__cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+
+.jm-preview-modal__header {
+  padding: 16px 16px 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.jm-preview-modal__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.jm-preview-modal__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.jm-preview-modal__action {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+}
+
+.jm-preview-modal__action:active {
+  background: #f5f5f5;
+}
+
+.jm-preview-modal__meta {
+  padding: 0 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #999;
+}
+
+.jm-preview-modal__category {
+  color: #2f748a;
+}
+
+.jm-preview-modal__dot {
+  color: #ddd;
+}
+
+.jm-preview-modal__divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 0 16px;
+}
+
+.jm-preview-modal__summary {
+  padding: 16px;
+}
+
+.jm-preview-modal__summary p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.jm-preview-modal__footer {
+  padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+.jm-preview-modal__view-full {
+  width: 100%;
+  padding: 14px;
+  background: #2f748a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.jm-preview-modal__view-full:active {
+  background: #286078;
+}
+
+/* === JmServiceCard === */
+.jm-sc-layout-origin {
+  font-size: 11px;
+  color: #da2e75;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.jm-sc-layout-desc {
+  width: 23px;
+  height: 1px;
+  background: linear-gradient(to right, #da2e75, transparent);
+  margin-bottom: 10px;
+}
+
+.jm-sc-layout-contentit {
+  font-size: 11px;
+  color: #A6BA43;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+/* === JmServiceCard Carousel === */
+.jm-sv-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.jm-sv-prev,
+.jm-sv-next {
+  padding: 4px 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #666;
+  font-size: 12px;
+}
+
+.jm-sv-count {
+  font-size: 12px;
+  color: #999;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* === JmYunshiDrawer — dimension/star/lucky layout === */
+.jm-yunshi-drawer__stars {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.jm-yunshi-drawer__star {
+  font-size: 14px;
+  color: #ddd;
+  transition: color 300ms;
+}
+
+.jm-yunshi-drawer__star--active {
+  color: inherit;
+}
+
+.jm-yunshi-drawer__dimension {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.jm-yunshi-drawer__dimension:last-child {
+  border-bottom: none;
+}
+
+.jm-yunshi-drawer__dimension-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.jm-yunshi-drawer__dimension-icon {
+  font-size: 14px;
+}
+
+.jm-yunshi-drawer__dimension-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.jm-yunshi-drawer__dimension-content {
+  font-size: 13px;
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.jm-yunshi-drawer__header-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jm-yunshi-drawer__emoji {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.jm-yunshi-drawer__title-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jm-yunshi-drawer__period {
+  font-size: 12px;
+  color: #999;
+}
+
+.jm-yunshi-drawer__dimensions {
+  display: flex;
+  flex-direction: column;
+}
+
+.jm-yunshi-drawer__extra {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.jm-yunshi-drawer__lucky {
+  margin-bottom: 12px;
+}
+
+.jm-yunshi-drawer__lucky-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.jm-yunshi-drawer__lucky-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jm-yunshi-drawer__lucky-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.jm-yunshi-drawer__lucky-label {
+  color: #999;
+}
+
+.jm-yunshi-drawer__lucky-value {
+  color: #1a1a1a;
+}
+
+.jm-yunshi-drawer__lucky-words {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #6b6b6b;
+  font-style: italic;
+}
+
+.jm-yunshi-drawer__taboo {
+  background: #fff9f9;
+  border: 1px solid #ffe0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+.jm-yunshi-drawer__taboo-title {
+  font-size: 12px;
+  color: #d94e3d;
+  margin-bottom: 4px;
+}
+
+.jm-yunshi-drawer__taboo-content {
+  font-size: 13px;
+  color: #6b6b6b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.jm-yunshi-drawer__empty {
+  text-align: center;
+  padding: 32px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+/* === JmZodiacGrid === */
+/* (旧版 jm-zodiac-grid 第二套样式已合并到上方 1886-2032 行,这里不再重复定义 — 避免选中态出现意外圆框) */
+
+/* === JmYunshiResult === */
+.jm-yunshi-result__zodiac-info {
+  padding: 12px 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* === JmContactField === */
+.jm-contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.jm-contact-field__label {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.jm-contact-field__required {
+  color: #D94E3D;
+  margin-left: 2px;
+}
+.jm-contact-field__field {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #171717;
+  background: #FAFAFA;
+  border: 1px solid #eee;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-sizing: border-box;
+}
+.jm-contact-field__field::placeholder {
+  color: #ccc;
+}
+.jm-contact-field__field:focus {
+  border-color: #D94E3D;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(217,78,61,0.06);
+}
+.jm-contact-field__field--error {
+  border-color: #D94E3D;
+}
+.jm-contact-field__error {
+  font-size: 12px;
+  color: #D94E3D;
+  margin: 0;
+}
+
+/* === JmTextarea === */
+.jm-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.jm-textarea__label {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.jm-textarea__field {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #171717;
+  background: #FAFAFA;
+  border: 1px solid #eee;
+  outline: none;
+  resize: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-sizing: border-box;
+  min-height: 80px;
+}
+.jm-textarea__field::placeholder {
+  color: #ccc;
+}
+.jm-textarea__field:focus {
+  border-color: #D94E3D;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(217,78,61,0.06);
+}
+
+/* === JmModal === */
+.jm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jm-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.jm-modal__content {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 360px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.jm-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.jm-modal__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.jm-modal__close {
+  /* 始终渲染在 modal 右上角(与 header 解耦,无 title 时也能关闭)
+     普通模式:绝对定位贴在 modal 边缘
+     全屏模式:贴在状态栏安全区下方(见下方 .jm-modal--fullscreen 覆盖) */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 50%;
+}
+.jm-modal__close:hover {
+  color: #171717;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.jm-modal__close:active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.jm-modal__body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+.jm-modal__footer {
+  padding: 16px;
+  border-top: 1px solid #E5E5E5;
+}
+
+/* === JmModal 全屏变体(用于服务详情等重内容展示) === */
+.jm-modal--fullscreen .jm-modal__content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: #fafafa;                       /* 页面色,非纯白 */
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jm-modal--fullscreen .jm-modal__overlay {
+  background: transparent;                   /* 全屏不需遮罩(已是全屏) */
+}
+
+.jm-modal--fullscreen .jm-modal__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fafafa;
+  border-bottom: 1px solid #E5E5E5;
+  flex-shrink: 0;
+}
+
+.jm-modal--fullscreen .jm-modal__body {
+  flex: 1;
+  padding: 16px;
+}
+
+/* 全屏模式:关闭按钮下移到状态栏安全区下方,加圆形浅底以提升可识别性 */
+.jm-modal--fullscreen .jm-modal__close {
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  color: #666;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.jm-modal--fullscreen .jm-modal__close:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* === JmDateSelector === */
+.jm-date-selector__scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.jm-date-selector__scroll::-webkit-scrollbar {
+  display: none;
+}
+.jm-date-selector__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #E5E5E5;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 60px;
+  transition: all 0.2s;
+}
+.jm-date-selector__item--active {
+  border-color: var(--theme-color, #D94E3D);
+  background: rgba(217, 78, 61, 0.05);
+}
+.jm-date-selector__weekday {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 2px;
+}
+.jm-date-selector__item--active .jm-date-selector__weekday {
+  color: var(--theme-color, #D94E3D);
+}
+.jm-date-selector__day {
+  font-size: 16px;
+  font-weight: 600;
+  color: #171717;
+}
+.jm-date-selector__item--active .jm-date-selector__day {
+  color: var(--theme-color, #D94E3D);
+}
+
+/* === JmTimeSlotGrid === */
+.jm-time-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), 1fr);
+  gap: 8px;
+}
+.jm-time-slot-grid__item {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+.jm-time-slot-grid__item:hover {
+  border-color: #ddd;
+  background: #fff;
+}
+.jm-time-slot-grid__item--active {
+  border-color: var(--theme-color, #D94E3D);
+  background: color-mix(in srgb, var(--theme-color, #D94E3D) 8%, #fff);
+  color: var(--theme-color, #D94E3D);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(217,78,61,0.08);
+}
+
+/* === JmDateTimePicker (两栏式:左周视图 7 列 + 右时段) === */
+.jm-date-time-picker {
+  display: grid;
+  /* 左:周视图 1.5fr(更宽) + 右:时段 1fr;防止溢出用 minmax(0,...) */
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: stretch;
+  min-width: 0;
+  /* 任何子元素都不允许撑大容器 */
+  overflow: hidden;
+}
+
+/* 左:周视图容器(7 列一周) */
+.jm-date-time-picker__calendar {
+  min-width: 0;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 8px 4px;
+}
+
+.jm-date-time-picker__calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  padding: 0 2px;
+}
+
+.jm-date-time-picker__calendar-month {
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.jm-date-time-picker__calendar-nav {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s;
+  padding: 0;
+}
+
+.jm-date-time-picker__calendar-nav:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--theme-color, #D94E3D);
+}
+
+.jm-date-time-picker__calendar-nav:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.jm-date-time-picker__calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 2px;
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  padding: 0 2px;
+}
+
+.jm-date-time-picker__calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0;
+  padding: 0 2px;
+}
+
+.jm-date-time-picker__calendar-day {
+  /* button 是方块 hit area(满足 44px 触摸热区),圆形画在内层 span 上 */
+  width: 100%;
+  height: 44px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.jm-date-time-picker__calendar-day-num {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #171717;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.15s;
+  line-height: 1;
+}
+
+.jm-date-time-picker__calendar-day:hover .jm-date-time-picker__calendar-day-num {
+  background: var(--page-theme-color, var(--theme-color, #D94E3D));
+  color: #fff;
+}
+
+.jm-date-time-picker__calendar-day--disabled .jm-date-time-picker__calendar-day-num {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.jm-date-time-picker__calendar-day--today .jm-date-time-picker__calendar-day-num {
+  font-weight: 700;
+  color: var(--page-theme-color, var(--theme-color, #D94E3D));
+}
+
+.jm-date-time-picker__calendar-day--active .jm-date-time-picker__calendar-day-num {
+  background: var(--page-theme-color, var(--theme-color, #D94E3D));
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 右:时段 */
+.jm-date-time-picker__time {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.jm-date-time-picker__time-title {
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #171717;
+  margin-bottom: 4px;
+  line-height: 20px;
+}
+
+.jm-date-time-picker__time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.jm-date-time-picker__time-item {
+  padding: 8px 0;
+  background: #fafafa;
+  border: 0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #171717;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  font-family: inherit;
+  min-width: 0;
+}
+
+.jm-date-time-picker__time-item:hover {
+  background: var(--page-theme-color, var(--theme-color, #D94E3D));
+  color: #fff;
+}
+
+.jm-date-time-picker__time-item:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.jm-date-time-picker__time-item--active {
+  background: var(--page-theme-color, var(--theme-color, #D94E3D));
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 窄屏(<360px):上下两栏,周视图全宽,时段网格在下方 */
+@media (max-width: 360px) {
+  .jm-date-time-picker {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === 通用视觉类(跨页面复用) === */
+/**
+ * 次要文字色(#999)— 辅助说明、空态、loading、未登录等
+ * 严禁:❌ 直接在页面写 `text-[#999]`
+ */
+.jm-muted {
+  color: #999;
+}
+
+/**
+ * 二级文字色(#666)— 表单次要字段、按钮次要文字
+ * 严禁:❌ 直接在页面写 `text-[#666]`
+ */
+.jm-text-secondary {
+  color: #666;
+}
+
+/**
+ * 输入框基础样式(白底 + 圆角 + 灰边框 + focus 品牌色)
+ * 严禁:❌ 页面里硬编码 `border-[#e0e0e0] focus:border-[#xxx]`
+ */
+.jm-form-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #171717;
+  transition: border-color 0.2s ease;
+  outline: none;
+  font-family: inherit;
+}
+.jm-form-input:focus {
+  border-color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+}
+
+/**
+ * 次要按钮(灰边框 + 灰字)— 验证码按钮等
+ */
+.jm-form-button-ghost {
+  height: 52px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.jm-form-button-ghost:active {
+  transform: scale(0.98);
+}
+
+/**
+ * 分割线(横向 1px 浅灰)
+ */
+.jm-divider-line {
+  height: 1px;
+  background: #f0f0f0;
+}
+
+/**
+ * 模态弹窗容器(白底 + 圆角 + 阴影)
+ */
+.jm-modal-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.jm-modal-divider {
+  border-top: 1px solid #e0e0e0;
+}
+
+.jm-modal-btn-secondary {
+  height: 52px;
+  color: #666;
+  border-right: 1px solid #e0e0e0;
+  background: transparent;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* === JmFormCardTitle (表单卡片标题 — 品牌字体+大两号+选中态变品牌色) === */
+/* 项目规则:所有表单卡片标题(选择服务/联系人信息/预约日期等)用这套样式 */
+/*   - 字体:cwTeXMing(品牌衬线字体) */
+/*   - 字号:15px(正文 13px 基础上大两号) */
+/*   - 默认字色:#171717 黑色 + 图标黑色 */
+/*   - 选中态:标题+图标同步变为页面品牌色(品牌色 = 该页面页眉的 themeColor) */
+.jm-form-card-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.jm-form-card-title svg {
+  flex-shrink: 0;
+  color: #171717;
+  transition: color 0.2s ease;
+}
+
+.jm-form-card-title--active,
+.jm-form-card-title--active svg {
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+}
+
+.jm-form-card-required {
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/**
+ * 表单卡片容器(初始态)
+ * 用法:在卡片外层 div 上加 `.jm-form-card-hint` 类
+ *   - 1px 圆角实线边框(页面品牌色),无阴影
+ *   - 用于"页面打开就强调存在感"的卡片(如选择服务)
+ *   - 不参与选中态切换
+ */
+.jm-form-card-hint {
+  background: #fff;
+  border: 1px solid var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* === JmProductGrid (new BEM: jm-product-grid__item / --cols-3) === */
+.jm-product-grid__item {
+  display: contents;
+}
+
+.jm-product-grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);}
+
+/* === JmProductDetail — 商品详情内容(放进 JmServiceDetailDrawer 等容器) === */
+.jm-product-detail {
+  padding: 16px;
+  padding-bottom: 32px;
+}
+
+.jm-product-detail__cover {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f5f5f5;
+  margin-bottom: 16px;
+}
+
+.jm-product-detail__cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jm-product-detail__cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.jm-product-detail__category {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--product-detail-color, #A6BA43);
+  background: color-mix(in srgb, var(--product-detail-color, #A6BA43) 8%, transparent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.jm-product-detail__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #171717;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.jm-product-detail__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.jm-product-detail__price-current {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--product-detail-color, #A6BA43);
+}
+
+.jm-product-detail__price-original {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.jm-product-detail__description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.jm-product-detail__actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* === JmCartFloatButton (new BEM: jm-cart-float-button__*) === */
+.jm-cart-float-button {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  right: 16px;
+  min-width: 52px;
+  min-height: 52px;
+  height: 52px;
+  padding: 0 18px;
+  background: #171717;
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  z-index: 50;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.jm-cart-float-button--center {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.jm-cart-float-button--center:active {
+  transform: translateX(50%) scale(0.95);
+}
+
+.jm-cart-float-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+.jm-cart-float-button:active {
+  transform: scale(0.95);
+}
+
+.jm-cart-float-button__icon {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.jm-cart-float-button__price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #A6BA43;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.jm-cart-float-button__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  background: #D94E3D;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  font-weight: 600;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+
+
+
+/* === JmAppointmentTips (预约流程 - 横向 Tab 形态) === */
+/* 视觉升级:圆点指示器 + 精致分隔 + 当前步骤动效 */
+
+.jm-appointment-tips--tabs {
+  display: flex;
+  align-items: center;
+  /* 独立布局:fixed 固定在页眉正下方,左右贯通 viewport 宽度,不受父级 padding 影响 */
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100vw;
+  height: 52px;
+  padding: 0 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  gap: 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+/* 4 个 tab + 3 个箭头 = 7 个子项 */
+.jm-appointment-tips__tab {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0 0;
+  height: 100%;
+  background: #fff;
+  border: 0;
+  color: #bbb;
+  font-size: 12px;
+  line-height: 1.2;
+  cursor: default;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.jm-appointment-tips__tab:disabled {
+  cursor: default;
+}
+
+.jm-appointment-tips__label {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: visible;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+/* 原点指示器 */
+.jm-appointment-tips__tab::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+/* arrow 作为 tab 之间的独立分隔元素,固定宽度,永远显示 */
+.jm-appointment-tips__arrow {
+  flex: 0 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+
+/* 当前 tab：实心圆点 + 主色 + 微放大 */
+.jm-appointment-tips__tab--current {
+  background: #fff;
+  color: var(--theme-color, #D94E3D);
+}
+
+.jm-appointment-tips__tab--current .jm-appointment-tips__label {
+  font-weight: 600;
+  color: var(--theme-color, #D94E3D);
+}
+
+.jm-appointment-tips__tab--current::before {
+  width: 10px;
+  height: 10px;
+  background: var(--theme-color, #D94E3D);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-color, #D94E3D) 20%, transparent);
+}
+
+/* arrow 跟随前一个 tab 的状态着色 */
+.jm-appointment-tips__arrow.jm-appointment-tips__tab--current,
+.jm-appointment-tips__arrow.jm-appointment-tips__tab--done {
+  color: var(--theme-color, #D94E3D);
+  opacity: 0.6;
+}
+
+/* 已完成 tab：勾选圆点 + 主色 + 可点击 */
+.jm-appointment-tips__tab--done {
+  background: #fff;
+  color: var(--theme-color, #D94E3D);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.jm-appointment-tips__tab--done .jm-appointment-tips__label {
+  color: var(--theme-color, #D94E3D);
+}
+
+.jm-appointment-tips__tab--done::before {
+  background: var(--theme-color, #D94E3D);
+  /* 勾选标记(简化:直接用纯色圆) */
+}
+
+.jm-appointment-tips__tab--done:hover {
+  background: rgba(217, 78, 61, 0.03);
+}
+
+.jm-appointment-tips__tab--done:hover::before {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-color, #D94E3D) 15%, transparent);
+}
+
+/* 未开始 tab: 灰圆 + 浅灰字 */
+.jm-appointment-tips__tab--upcoming {
+  background: #fff;
+  color: #ccc;
+}
+
+.jm-appointment-tips__tab--upcoming .jm-appointment-tips__label {
+  color: #ccc;
+}
+
+.jm-appointment-tips__arrow.jm-appointment-tips__tab--upcoming {
+  color: #e8e8e8;
+}
+
+/* === JmServiceCard (book chip + price row) === */
+/* 价格行：flex 布局,左价格右 chip */
+.jm-service-card__price-row {
+  padding-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* 价格文字块:左对齐占满剩余空间 */
+.jm-service-card__price-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 价格单位（元）— 灰色小字 */
+.jm-service-card__price-unit {
+  font-size: 10px;
+  color: #bbb;
+  letter-spacing: 0.05em;
+}
+
+/* 立即预约 chip — 方案 B 浅实色:8% 透明品牌色底 + 品牌色字(为客户着想,克制版) */
+.jm-service-card__book-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 视觉高度 32px(芯片标签标准,比按钮更扁),padding 让点击热区保持 ~36px */
+  min-height: 32px;
+  min-width: 80px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  letter-spacing: 0.08em;
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  background: rgba(217, 78, 61, 0.08);  /* 品牌色 8% 透明:同色相稀释,纯实色感 */
+  border: none;                          /* 去框线 */
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* hover:加深到 14% 透明(暗示可点) */
+.jm-service-card__book-chip:hover {
+  background: rgba(217, 78, 61, 0.14);
+}
+
+/* active:加深到 20% 透明 + 微缩 */
+.jm-service-card__book-chip:active {
+  background: rgba(217, 78, 61, 0.20);
+  transform: scale(0.97);
+}
+
+/* === JmBookingSummary (预约页顶部"已选服务"摘要) === */
+.jm-booking-summary {
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D)) 30%, #f0f0f0);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.jm-booking-summary__title {
+  margin: 0;
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  letter-spacing: 0.04em;
+}
+
+.jm-booking-summary__subtitle {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === JmDeliveryPicker (交付方式 chip 形态) === */
+.jm-delivery-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.jm-delivery-picker__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #171717;
+  letter-spacing: 0.02em;
+}
+
+.jm-delivery-picker__required {
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  font-weight: 700;
+}
+
+/* chip 行:两列 grid,等宽,8px 间距 */
+.jm-delivery-picker__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+/* 单个 chip:白底+灰边框,圆角,垂直居中 */
+.jm-delivery-picker__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 10px 8px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.jm-delivery-picker__option:hover {
+  border-color: #bbbbbb;
+}
+
+.jm-delivery-picker__option:active {
+  transform: scale(0.98);
+}
+
+/* 选中态:实色品牌色背景+白字+白边框(纯实色,不用 color-mix) */
+.jm-delivery-picker__option--active,
+.jm-delivery-picker__option--active:hover {
+  background: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  border-color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  color: #ffffff;
+}
+
+.jm-delivery-picker__option-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.jm-delivery-picker__option-desc {
+  font-size: 11px;
+  line-height: 1.3;
+  color: #999999;
+  transition: color 0.2s ease;
+}
+
+/* 选中态文字颜色:主标题 + 副描述都变白 */
+.jm-delivery-picker__option--active .jm-delivery-picker__option-title,
+.jm-delivery-picker__option--active .jm-delivery-picker__option-desc {
+  color: #ffffff;
+}
+
+/* 空状态 */
+.jm-delivery-picker__empty {
+  font-size: 13px;
+  color: #999999;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* 错误文案 */
+.jm-delivery-picker__error {
+  font-size: 12px;
+  color: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* === JmServiceCard === */
+/* 重构：把组件内 30+ 处 inline style 全部抽到 BEM 类
+   颜色全部走 var(--page-theme-color) / --jm-color-brand-* 链
+   isActive 状态：父容器 .is-active 切换，子元素用后代选择器响应 */
+
+/* ===== 容器扩展（jm-sc-layout-* 继承类补全） ===== */
+
+/* 分类前小竖线 — 宽度/高度/背景/默认透明度/过渡 */
+.jm-sc-layout-content {
+  width: 12px;
+  height: 1px;
+  background: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+  opacity: 0.4;
+  transition: opacity 500ms;
+}
+
+.jm-service-card.is-active .jm-sc-layout-content {
+  opacity: 0.8;
+}
+
+/* 分类文字 — 字号/颜色/字间距/大小写/字重（沿用旧名 contentt，不再重复创建） */
+.jm-sc-layout-contentt {
+  font-size: 16px;
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* 缘起标题 — 默认透明度 + 过渡 */
+.jm-sc-layout-origin {
+  opacity: 0.5;
+  transition: opacity 400ms;
+}
+
+.jm-service-card.is-active .jm-sc-layout-origin {
+  opacity: 0.8;
+}
+
+/* 分隔线（玫红渐变透明） — 默认宽度/不透明度 + 过渡 */
+.jm-sc-layout-desc {
+  width: 23px;
+  height: 1px;
+  background: linear-gradient(to right, var(--page-theme-color, var(--jm-color-brand-rose, #da2e75)), transparent);
+  margin-bottom: 10px;
+  transition: width 400ms ease-out, opacity 400ms ease-out;
+  opacity: 0.25;
+}
+
+.jm-service-card.is-active .jm-sc-layout-desc {
+  width: 35px;
+  opacity: 0.5;
+}
+
+/* 服务内容标题（绿） — 默认透明度 + 过渡 */
+.jm-sc-layout-contentit {
+  opacity: 0.5;
+  transition: opacity 400ms;
+}
+
+.jm-service-card.is-active .jm-sc-layout-contentit {
+  opacity: 0.8;
+}
+
+/* ===== 翻页导航扩展 ===== */
+.jm-sv-prev.jm-sv--disabled,
+.jm-sv-next.jm-sv--disabled {
+  background: #f5f5f5;
+  cursor: default;
+  color: #ccc;
+}
+
+/* ===== 新增 BEM 类（jm-service-card__） ===== */
+
+/* 空态文案 */
+.jm-service-card__empty {
+  padding: 24px 20px;
+  color: #999;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* 分享按钮容器 — 右上角悬浮 */
+.jm-service-card__share {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* 分享按钮 */
+.jm-service-card__share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-service-card__share-btn--sharing {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+/* 分类标签容器 */
+.jm-service-card__category {
+  margin-bottom: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 服务名外层 */
+.jm-service-card__name-wrap {
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+/* 服务名 h2 — 衬线字体 */
+.jm-service-card__name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+}
+
+/* 服务名 label（轻底色徽章） */
+.jm-service-card__name-label {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 5px 7px;
+  border-radius: 4px;
+}
+
+/* 缘起块 */
+.jm-service-card__origin {
+  margin-bottom: 10px;
+}
+
+/* 缘起正文 */
+.jm-service-card__origin-text {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* 服务内容块 */
+.jm-service-card__content {
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+/* 服务内容列表 */
+.jm-service-card__content-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 单条服务内容 */
+.jm-service-card__content-item {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* 服务内容前的圆点（绿） */
+.jm-service-card__content-dot {
+  color: var(--jm-color-brand-green, #A6BA43);
+  opacity: 0.4;
+  transition: opacity 400ms;
+}
+
+.jm-service-card.is-active .jm-service-card__content-dot {
+  opacity: 0.8;
+}
+
+/* 咨询方式/时长 行（上下细线） */
+.jm-service-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.jm-service-card__meta-item--right {
+  text-align: right;
+}
+
+/* 咨询方式/时长 标签 */
+.jm-service-card__meta-label {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* 咨询方式/时长 值 */
+.jm-service-card__meta-value {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* 价格数字（默认灰、激活玫红） */
+.jm-service-card__price-amount {
+  font-size: 20px;
+  color: #999;
+  font-weight: 600;
+  transition: color 400ms ease;
+}
+
+.jm-service-card.is-active .jm-service-card__price-amount {
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+}
+
+/* 原价（划线灰） */
+.jm-service-card__price-original {
+  font-size: 11px;
+  color: #ccc;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+
+/* 会员价 chip（绿底） */
+.jm-service-card__price-member {
+  font-size: 10px;
+  color: var(--jm-color-brand-green, #A6BA43);
+  background: rgba(166, 186, 67, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 4px;
+}
+
+/* 附加条件 */
+.jm-service-card__additional-rule {
+  font-size: 10px;
+  color: #bbb;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* 底部信息栏 */
+.jm-service-card__footer {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 浏览量 */
+.jm-service-card__views {
+  font-size: 10px;
+  color: #ccc;
+}
+
+/* === JmServiceDetailDrawer(服务详情底部抽屉 + 面包屑,沿用 JmYunshiDrawer 视觉) === */
+.jm-service-detail-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;                /* 与 .jm-search-drawer / .jm-yunshi-drawer 一致 */
+  pointer-events: none;         /* 容器不接事件,让遮罩/抽屉自己接 */
+}
+
+/* 遮罩层:深色半透 + 淡入 */
+.jm-service-detail-drawer__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  animation: jm-fade-in 0.2s ease-out;
+}
+
+/* 抽屉内容:80vh 高度,锚底,顶部 20px 圆角 + 向上阴影(参考 .jm-yunshi-drawer) */
+.jm-service-detail-drawer__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fafafa;                                       /* 页面色 */
+  border-radius: 20px 20px 0 0;                              /* 顶部圆角 */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);                /* 向上阴影 */
+  height: 80vh;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: env(safe-area-inset-bottom);               /* 适配 Home Indicator */
+  overflow: hidden;
+  pointer-events: auto;
+  animation: jm-slide-up 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* ============================================================
+   手柄(顶部那根 36×4 短条,沿用 .jm-yunshi-drawer 视觉)
+   ============================================================ */
+.jm-service-detail-drawer__handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0 6px;
+  flex-shrink: 0;
+}
+
+.jm-service-detail-drawer__handle-bar {
+  width: 36px;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+/* 顶部 header:sticky,固定在抽屉顶部(手柄下方) */
+.jm-service-detail-drawer__header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;                                     /* iOS 导航栏标准 */
+  /* padding-right 留 52px 给绝对定位的 __close 按钮(32+12+8)避免面包屑被遮挡 */
+  padding: 0 52px 0 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+/* 返回按钮:左箭头 + 文字 */
+.jm-service-detail-drawer__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px 6px 0;
+  background: transparent;
+  border: none;
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-size: 14px;                                  /* iOS 导航文字标准 */
+  font-weight: 500;
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.jm-service-detail-drawer__back svg {
+  flex-shrink: 0;
+}
+
+.jm-service-detail-drawer__back:active {
+  opacity: 0.6;
+}
+
+/* 右上角关闭按钮:绝对定位,贴在 header 右侧,与「< 返回」并存
+   位置:手柄条(高 18px) + header 内的垂直居中 = 18 + (44-32)/2 = 24px
+   32×32 圆形浅底,中性灰(不抢品牌色,只表达"关闭") */
+.jm-service-detail-drawer__close {
+  position: absolute;
+  top: 24px;                                       /* 手柄 18px + header 居中 6px */
+  right: 12px;
+  z-index: 20;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  border: none;
+  border-radius: 50%;
+  color: #666;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.jm-service-detail-drawer__close:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #171717;
+}
+.jm-service-detail-drawer__close:active {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* 面包屑容器 */
+.jm-service-detail-drawer__breadcrumb {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;                                     /* 允许 flex 子项收缩 */
+  overflow: hidden;
+}
+
+/* 面包屑单元:分类名(可点) */
+.jm-service-detail-drawer__crumb {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-size: 13px;
+  color: #999;                                      /* 灰色,次要 */
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jm-service-detail-drawer__crumb:disabled {
+  cursor: default;
+}
+
+.jm-service-detail-drawer__crumb:not(:disabled):active {
+  opacity: 0.6;
+}
+
+/* 面包屑分隔符 */
+.jm-service-detail-drawer__crumb-sep {
+  font-size: 13px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+/* 面包屑当前服务名(主色,不可点) */
+.jm-service-detail-drawer__crumb--current {
+  font-weight: 600;
+  color: var(--page-theme-color, var(--jm-color-brand-rose, #da2e75));
+  flex: 1;
+  min-width: 0;
+}
+
+/* body 区域:flex 居中,卡片在抽屉里居中展示 */
+.jm-service-detail-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;                /* 水平居中 */
+  padding: 16px;
+}
+
+/* 卡片外层 wrapper:限制最大宽度(375 - 16×2 = 343) */
+.jm-service-detail-drawer__card-wrap {
+  width: 100%;
+  max-width: 343px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 动画 keyframes */
+@keyframes jm-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes jm-slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* === JmCateMindMap === */
+/* 思维导图式两阶段产品目录:
+   - 阶段 1 (--collapsed): 3 大卡垂直堆叠
+   - 阶段 2 (--expanded):  选中大卡缩到左上 + 子卡扇形散开
+   主题色: CSS 变量 --mm-color, 来自 props.themeColor
+   布局策略: 始终用 flex column + 绝对定位的 .jm-mm__branch,
+            通过 width 0/64% 过渡实现展开/收起 (grid-template-columns 不可过渡)
+*/
+
+.jm-mm {
+  --mm-color: #D94E3D;
+  --mm-card-radius: 18px;
+  --mm-sub-radius: 12px;
+  --mm-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --mm-trans: 0.5s var(--mm-ease);
+  --mm-min-touch: 44px;
+  --mm-gap: 16px;
+  /* 磨砂卡片底色: 半透白, 状态变体叠主色基于此 */
+  --mm-card-bg: rgba(255, 255, 255, 0.62);
+  /* 磨砂玻璃的"刻度"层: 顶部微亮 → 完全透明, 单向高光无暗影
+     与 --mm-card-bg 配合使用, 写在 background 的中间层 */
+  --mm-card-gradient: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0) 100%);
+  /* 噪点纹理 (磨砂颗粒感) — 仿 JmBrandBadge 首页品牌徽章写法
+     内联 SVG feTurbulence 噪点, baseFrequency=0.7 (细密) + 黑白饱和度归零,
+     0.22 opacity 让纹理若隐若现, 不抢主体内容 */
+  --mm-card-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  /* padding 上下 0 + 左右 16:
+     - 上下 0: 折叠态 3 大卡总高 540 < 可视区 513 + 大卡 160 让 504,不再溢出 footer
+       (原本上下 16 各占 16,折叠态 596 跟可视区 513 差 83,卡 3 底被切 67)
+     - 左右 16: 卡片不贴边,留呼吸空间
+     展开态不受影响:row 高度 --mm-visible-h=473 决定,jm-mm 实际 = 473 + 0 = 473,小于 513 */
+  padding: 0 16px;
+  font-family: inherit;
+  color: #171717;
+  background: transparent;
+}
+
+.jm-mm--expanded {
+  /* 阶段 2: CSS Grid 两列布局 (大卡容器 | 子卡分支)
+     列宽用百分比相对 .jm-mm 内容区,不依赖 viewport,
+     避免平板/横屏下 vw 计算超过 .jm-mm max-width:480px 导致分支被挤爆
+     (grid-template-columns 不可过渡,直接 snap,无宽度动画) */
+  display: grid;
+  /* 不写 minmax:postcss-px-to-viewport 会把 px 最小值转换成 vw,
+     在 iPad 等宽屏上 vw 计算超过 .jm-mm max-width:480px,导致左列过宽
+     纯百分比 38% 在 .jm-mm 内容区 (343px~448px) 中算出 130~170px,
+     大卡文字 (3-4 字) 都能放下 */
+  grid-template-columns: 38% 1fr;
+  /* 行高锁"可见区":组件在 mount/resize 时量出 (footerTop - mmTop)
+     注入 --mm-visible-h(min 180px),这里是真正的可画区域
+     minmax(0, X) 让 row 最小可缩到 0,内容溢出由各列自管 scroll
+     不锁的话 row 跟着内容长,subs 永远等于内容高度 → 没有溢出 → 滚动提示失效 */
+  grid-template-rows: minmax(0, var(--mm-visible-h, 100dvh));
+  gap: 8px;
+  align-items: stretch;
+}
+
+/* ────────── 左侧大卡列表(始终 flex column,占据父容器宽度) ────────── */
+/* 阶段 2 中作为 grid 子项 (左列),列宽由 .jm-mm--expanded 的
+   grid-template-columns 决定 (minmax(120px, 38%) 1fr),
+   不再需要 inline 宽度注入 — 移除了 vw 计算,避免平板溢出 */
+.jm-mm__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  /* z-index: 1 — 显式设第一层,让 .jm-mm__branch(z:2)明确在它之上。
+     之前 z:auto 时,DOM 顺序后绘的 branch 理论上胜出,但只要 indicator
+     用 margin-left 负值溢出到 cards 列上方,就会被 cards 的 background
+     (含 backdrop-filter 玻璃层)截断。显式分层后,branch 整个容器在
+     cards 之上,indicator 即便溢出也不被遮。 */
+  z-index: 1;
+  /* 不设 width,让 inline style 接管 */
+  flex-shrink: 0;
+}
+
+/* ────────── 展开后左侧大卡固定(sticky),subs 区内部滚动 ────────── */
+/* 原因:subs 列内容多(11 项),用户向下滚动 subs 时,
+   左侧分类卡始终可见,保持"我现在在哪个分类"的空间感知
+   position: sticky + top: 0 让 cards 在其父容器滚动时粘在顶部
+   这里父容器是 grid row,bounded;subs 用 overflow-y: auto 自管滚动,
+   整个 .jm-mm 不溢出 → page 不滚 → sticky 无需 top 偏移
+   (若以后 page 可滚,top 改用页眉高度 var(--status-bar-height) + 56)
+
+   关键:删 align-self: start,让 cards 列 stretch 填满 row(513px)。
+   之前 start 导致 cards 只占内容高 166px,左列下方 347px 空白,
+   视觉上让右侧底部子卡"左半边被掏空",+ subMore 14.5px 距 footer
+   一起造成"页脚和页面之间有空白距离"的错觉。
+   改 stretch 后,左列也填到 603 footer 顶,空白消除。 */
+.jm-mm--expanded .jm-mm__cards {
+  position: sticky;
+  top: 0;
+}
+
+/* 展开后左列大卡按 DOM 顺序自然竖排:active 顶部 → dimmed 紧随 → 剩余
+   空间均分在卡片之间的 gap 上(.jm-mm__cards 的 gap: 12px + stretch 列高
+   配合,卡片之间视觉等距,不再被 margin-top: auto 强推到底)
+   之前用 margin-top: auto + order 把 dimmed 推到 footer 顶,中间留 355px 空白;
+   现在按 DOM 顺序自然排,顶对齐。 */
+
+.jm-mm__cards[data-state="collapsed"] {
+  gap: 8px;
+}
+
+.jm-mm__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: var(--mm-min-touch);
+  padding: 16px;
+  /* 磨砂玻璃: 三层背景 (从下到上依次叠加)
+     - 底层: 半透白, 喂给 backdrop-filter 产生 blur
+     - 中层: 渐变高光 (顶亮 / 底暗), 玻璃光照层次
+     - 顶层: 细噪点纹理, 仿首页品牌徽章的颗粒磨砂感 (不被 blur 影响) */
+  background:
+    var(--mm-card-noise),
+    var(--mm-card-gradient),
+    var(--mm-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--mm-card-radius);
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  /* 磨砂玻璃: 半透白底 + 20px blur + 180% saturate (背后颜色更鲜亮)
+     iOS 需 -webkit- 前缀, 不支持时回退到半透明白底仍可读 */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  /* 所有可过渡属性都列上,统一 0.5s ease,避免属性错开 */
+  transition:
+    padding var(--mm-trans),
+    min-height var(--mm-trans),
+    border-color var(--mm-trans),
+    box-shadow var(--mm-trans),
+    opacity var(--mm-trans),
+    background var(--mm-trans);
+  /* will-change 给 GPU 加速(动画结束后浏览器自动释放) */
+  will-change: padding, min-height;
+}
+
+.jm-mm__card:hover {
+  border-color: color-mix(in srgb, var(--mm-color) 50%, rgba(255, 255, 255, 0.55));
+}
+
+.jm-mm__card:focus-visible {
+  border-color: var(--mm-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mm-color) 18%, transparent);
+}
+
+/* 阶段 1 大卡高度: 比基线高一倍 (44 → 88), padding 加大让标题和副标题更舒展
+   specificity (0,2,0) 与 .jm-mm--expanded .jm-mm__card 同级, 但因 wrapper class
+   二选一 (collapsed/expanded), 不会与阶段 2 状态冲突
+   高度 163(原 180,缩 9%):配合 .jm-mm padding: 0 16(删上下 32)
+     → 折叠态 jm-mm 高度 = 0 + 3×163 + 2×12 = 513,等于可视区(header 底 90 → footer 顶 603)
+     → jm-mm 底 90+513=603 跟 footer 顶 603 完全贴住(0 距离) */
+.jm-mm--collapsed .jm-mm__card {
+  min-height: 163px;
+  padding: 22px 20px;
+}
+
+/* 阶段 1 body 居中: body 在 flex row 是中间 flex:1 子项,
+   align-items/text-align center 让标题+副标题在卡片水平居中 */
+.jm-mm--collapsed .jm-mm__card-body {
+  align-items: center;
+  text-align: center;
+}
+
+/* 阶段 1 副标题加大: 13 → 14, 跟标题拉开视觉差但不抢主角 */
+.jm-mm--collapsed .jm-mm__card-desc {
+  font-size:14px;
+  color: var(--mm-color);
+  letter-spacing:calc(0.5em - 4px);
+  text-indent:0.5em;
+}
+
+/* 选中态(阶段 2 缩到左上)
+   用复合选择器(.jm-mm__card.jm-mm__card--active)而非单修饰类,
+   把 specificity 提到 (0,2,0) > 基类 (0,1,0),
+   绕开 Turbopack 优化器把 .jm-mm--expanded .jm-mm__card--active 简化为单类后
+   因源顺序错位导致基类覆盖的问题 */
+.jm-mm__card.jm-mm__card--active {
+  border-color: var(--mm-color);
+  background: transparent;
+  /* 阶段 2 容器只剩 25% 宽,vertical 布局让标题有完整宽度 */
+  padding: 6px 4px;
+  min-height: 60px;
+}
+
+/* 非选中态在阶段 2 缩成小条(同样双类复合) */
+.jm-mm__card.jm-mm__card--dimmed {
+  padding: 6px 4px;
+  min-height: 50px;
+  opacity: 0.55;
+  background:
+    var(--mm-card-noise),
+    var(--mm-card-gradient),
+    color-mix(in srgb, #fafafa 50%, var(--mm-card-bg));
+}
+
+.jm-mm__card.jm-mm__card--dimmed .jm-mm__card-desc,
+.jm-mm__card.jm-mm__card--active .jm-mm__card-desc {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  /* 关键: 用 max-height + opacity 平滑收起,而不是 display:none (不可过渡) */
+  transition: max-height var(--mm-trans), opacity var(--mm-trans), margin-top var(--mm-trans);
+  overflow: hidden;
+}
+
+/* dimmed 卡片在阶段 2 改回 horizontal(icon + title + arrow 一行)
+   .jm-mm--expanded 在 wrapper 上,不是 card 上 → descendant selector(空格)
+   specificity (0,3,1) > (0,2,1) */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--dimmed .jm-mm__card-arrow {
+  max-width: 16px;
+  opacity: 1;
+  margin-left: auto;
+}
+
+/* 阶段 2 时所有大卡变 vertical 布局(icon 上,文字下)
+   让 70px 宽的小条能完整显示"个人类"3 字
+   注意: 必须用 .jm-mm__card 双类选择器,specificity (0,2,0) 才能胜出
+   否则被 .jm-mm__card--active .jm-mm__card-title (0,2,1) 覆盖 */
+.jm-mm--expanded .jm-mm__card {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+}
+
+/* dimmed 卡片覆盖: 阶段 2 改回 horizontal(icon + title + arrow 一行)
+   注意: .jm-mm--expanded 在 wrapper 上,不是 card 上 → 必须用 descendant selector(空格)
+   specificity (0,3,0) > (0,2,0) 胜出上面 .jm-mm--expanded .jm-mm__card */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--dimmed {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 8px;
+  padding: 8px 10px;
+}
+
+/* active 卡片覆盖: 阶段 2 也改回 horizontal(body[title] + arrow 一行)
+   active 在 JSX 中不渲染 icon(让出空间给标题),所以 row 布局下是 [title, arrow]
+   specificity (0,3,0) > (0,2,0) 胜出上面 .jm-mm--expanded .jm-mm__card */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--active {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 8px;
+  padding: 10px 12px;
+  min-height: 50px;
+}
+
+/* active arrow 推到右边(对齐 dimmed 行为)
+   specificity (0,3,1) > (0,2,1) */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--active .jm-mm__card-arrow {
+  margin-left: auto;
+}
+
+/* active body 限制为 flex: 1 让 title 可以 shrink/truncate */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--active .jm-mm__card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.jm-mm--expanded .jm-mm__card-body {
+  align-items: center;
+  width: 100%;
+}
+
+/* dimmed 的 body 也覆盖成左对齐(覆盖上面 .jm-mm--expanded .jm-mm__card-body 的 align-items: center)
+   specificity (0,3,1) > (0,2,1) */
+.jm-mm--expanded .jm-mm__card.jm-mm__card--dimmed .jm-mm__card-body {
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.jm-mm--expanded.jm-mm__card.jm-mm__card--active .jm-mm__card-title,
+.jm-mm--expanded.jm-mm__card.jm-mm__card--dimmed .jm-mm__card-title {
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-width: 100%;
+  display: block;
+  word-break: break-all;
+}
+
+.jm-mm__card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jm-mm__card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: #171717;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-size var(--mm-trans);
+}
+
+.jm-mm--collapsed .jm-mm__card-title {
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+/* 阶段 1 取消右箭头: 卡片已用 padding + 居中文字 + 主色边框表达选中, 不再需要 "→" 提示 */
+.jm-mm--collapsed .jm-mm__card-arrow {
+  display: none;
+}
+
+/* 阶段 1 取消左侧图标: 标题已 25px 居中, 图标视觉冗余, 让文字独占卡片 */
+.jm-mm--collapsed .jm-mm__card-icon {
+  display: none;
+}
+
+.jm-mm__card.jm-mm__card--active .jm-mm__card-title {
+  font-size: 14px;
+}
+
+.jm-mm__card.jm-mm__card--dimmed .jm-mm__card-title {
+  font-size: 14px;
+}
+
+.jm-mm__card-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #777;
+  max-height: 30px;
+  opacity: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height var(--mm-trans), opacity var(--mm-trans), margin-top var(--mm-trans);
+}
+
+.jm-mm__card-arrow {
+  flex-shrink: 0;
+  color: #bbb;
+  max-width: 20px;
+  opacity: 1;
+  margin-left: 0;
+  transition: color var(--mm-trans), max-width var(--mm-trans), opacity var(--mm-trans), margin-left var(--mm-trans);
+  overflow: hidden;
+}
+
+.jm-mm__card.jm-mm__card--active .jm-mm__card-arrow {
+  color: var(--mm-color);
+}
+
+/* ────────── 右侧分支区(absolute 定位) ────────── */
+/* left/right 通过 inline style 动态注入(见 index.tsx),
+   不用 transition,直接 snap */
+.jm-mm__branch {
+  /* 阶段2 中作为 grid 子项 (右列),relative 占位,
+     left/right/top/bottom 不再需要 — 由 grid 模板决定位置和大小
+     overflow: visible (非 hidden): 允许 .jm-mm__sub-more 跳动箭头溢出到
+     branch 左外边(原 hidden 把箭头切了 7px),SVG 连线在自身 100% 范围内不会溢出 */
+  position: relative;
+  /* z-index: 2 — 第二层在第一层(.jm-mm__cards, z:1)之上。
+     user 反馈"展开后第二层 z 轴应该在第一层之上" — 显式分层避免
+     indicator 溢出到 cards 列上方时被截断。cards 是 backdrop-filter
+     玻璃层,会盖住 z:0/auto 的 sibling。 */
+  z-index: 2;
+  min-height: 0;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.jm-mm__branch[data-state="expanded"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ────────── 思维导图连线(SVG) ────────── */
+.jm-mm__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.jm-mm__line {
+  /* 用 stroke-dasharray + dashoffset 动画,1s 完成"画线"效果 */
+  stroke-dasharray: 300;
+  stroke-dashoffset: 0;
+  /* 默认 0 offset(实线),不透明度低一些,显得不抢戏 */
+  opacity: 0.45;
+  fill: none;
+}
+
+/* ────────── 子卡片(竖排) ────────── */
+/* 无底部遮罩:溢出提示双箭头已移至左栏(.jm-mm__cards),子卡区不再需要
+   mask-image 渐隐,避免最后一个卡片底部被裁切显示不完整。 */
+.jm-mm__subs {
+  position: relative;
+  z-index: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 4px 0 3px 12px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+}
+
+/* 滚动条隐藏但保留滚动能力(原生双箭头仅作提示) */
+.jm-mm__subs::-webkit-scrollbar { display: none; }
+.jm-mm__subs { scrollbar-width: none; }
+
+/* ────────── 底部磨砂 pill:向下双箭头(呼吸动画) ────────── */
+/* 当 sub 内容超出可视区时,在 cards 列(左列)底部靠右显示双箭头,
+   靠近右侧分支区,提示可滚动查看更多子分类。
+   呼吸动画:opacity + scale 缓动,视觉上"在呼吸",提升提示感。
+   纯 CSS @keyframes,不依赖 JS,移动端兼容。
+   will-change 触发 GPU 合成层,避免 iOS Safari 掉帧。
+   磨砂玻璃效果跟 .jm-mm__card 风格一致, pointer-events: none。
+   现位于 .jm-mm__cards 内,position:absolute 相对 cards 容器定位。 */
+.jm-mm__sub-more {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  left: auto;
+  translate: none;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  /* 先淡入(0.3s),再接续呼吸(0.3s 后启动) */
+  animation:
+    jm-mm-sub-more-in 0.3s ease forwards,
+    jm-mm-more-breathe 1.8s ease-in-out infinite 0.3s;
+  will-change: transform, opacity;
+}
+
+@keyframes jm-mm-sub-more-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jm-mm__sub-more__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 13px;
+  background:
+    var(--mm-card-noise),
+    var(--mm-card-gradient),
+    var(--mm-card-bg);
+  border: 1px solid rgba(255,255,255,0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  color: var(--mm-color, #D94E3D);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+@keyframes jm-mm-more-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.jm-mm__sub {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  min-height: 96px;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: var(--mm-sub-radius);
+  /* 不可点: 整张 sub card 不响应点击,避免误触"只是看看"
+     主操作改走右下角 .jm-mm__sub-book 按钮 */
+  cursor: default;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  /* 进场:opacity 0 → 1 + translateX 8px → 0,stagger 60ms */
+  opacity: 0;
+  translate: 8px 0;
+  animation: jm-mm-sub-in 0.4s var(--mm-ease) forwards;
+  animation-delay: calc(200ms + var(--mm-sub-delay, 0ms));
+  transition:
+    border-color var(--mm-trans),
+    background var(--mm-trans);
+}
+
+@keyframes jm-mm-sub-in {
+  from { opacity: 0; translate: 8px 0; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+.jm-mm__sub-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.jm-mm__sub-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #171717;
+  letter-spacing: 1px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: break-all;
+}
+
+.jm-mm__sub-desc {
+  /* 字号 +2 (10px → 12px,等同 sm 字号 token),略放大易读,匹配只看 4 字的紧凑展示 */
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--jm-color-brand-rose, #da2e75);
+  letter-spacing: 0.5px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: break-all;
+}
+
+/* ────────── sub 卡片底部:价格 (左) + 立即预约 (右) ────────── */
+/* 新版布局 (2026-06-14):
+   sub card 改 flex column 垂直堆叠 (上 body / 下 footer),
+   footer 内 flex row 把价格 (左下) 和 立即预约按钮 (右下) 锚到两端
+   - 价格用 "300元起" 形式,只显示初级价格,简短不抢按钮视觉
+   - 按钮用 chip 风格 (无边框 + 灰底 + 直角) */
+.jm-mm__sub-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 2px;
+}
+
+.jm-mm__sub-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--mm-color);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  /* 给 button 留足空间,price 撑到上限就 ellipsis */
+  max-width: calc(100% - 90px);
+  flex: 1 1 auto;
+}
+
+.jm-mm__sub-price-num {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;  /* 数字等宽,价格视觉对齐 */
+}
+
+.jm-mm__sub-price-unit {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* 立即预约 按钮 (文字态:透明底 + 主题色字)
+   跟随 --mm-color(themeColor prop 注入),/services 玫红 / /mindmap 朱红 都自适配
+   无背景无边框,跟产品卡整体协调,留出"主操作"视线让 price 抢戏
+   紧贴文字:padding 3px 8px,height auto 让高度跟随内容
+   用 inline-block (非 flex) 避免被 footer 拉伸
+   hover 字色降到 70%(color-mix + black)给反馈,active 缩 0.96 */
+.jm-mm__sub-book {
+  flex: 0 0 auto;
+  display: inline-block;
+  /* 覆盖 globals.css:4086 全局 button 44px 触摸目标规则
+     chip 按钮不受最小触摸尺寸约束,允许紧贴文字 */
+  min-height: auto;
+  min-width: auto;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--mm-color, #D94E3D);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color var(--mm-trans),
+    transform var(--mm-trans);
+}
+
+.jm-mm__sub-book:hover {
+  color: color-mix(in srgb, var(--mm-color, #D94E3D) 70%, #000);
+}
+
+.jm-mm__sub-book:active {
+  transform: scale(0.96);
+}
+
+.jm-mm__sub-book:focus-visible {
+  box-shadow: 0 0 0 2px #171717;
+}
+
+/* ────────── JmBottomSheet ────────── */
+
+.jm-bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: jm-bs-overlay-in 0.25s ease-out;
+}
+
+@keyframes jm-bs-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jm-bottom-sheet {
+  width: 100%;
+  max-width: 500px;
+  max-height: 85dvh;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: jm-bs-sheet-in 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  touch-action: none;
+}
+
+@keyframes jm-bs-sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.jm-bottom-sheet__handle {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: #d4d4d4;
+}
+
+.jm-bottom-sheet__header {
+  flex: 0 0 auto;
+  padding: 12px 20px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.jm-bottom-sheet__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.3;
+}
+
+.jm-bottom-sheet__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jm-bottom-sheet__footer {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+/* ────────── JmBookingFlow 步骤条 ────────── */
+
+.jm-bf-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 0 12px;
+}
+
+.jm-bf-step {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.jm-bf-step--current {
+  color: var(--bs-color, #D94E3D);
+  font-weight: 600;
+}
+
+.jm-bf-step--done {
+  color: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-step__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  color: #fff;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.jm-bf-step--current .jm-bf-step__dot {
+  background: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-step--done .jm-bf-step__dot {
+  background: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-step__dot svg {
+  width: 12px;
+  height: 12px;
+}
+
+.jm-bf-connector {
+  width: 16px;
+  height: 2px;
+  background: #e5e5e5;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.jm-bf-connector--done {
+  background: var(--bs-color, #D94E3D);
+}
+
+/* ────────── JmBookingFlow 内容区 ────────── */
+
+.jm-bf-section {
+  margin-bottom: 16px;
+}
+
+.jm-bf-section__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #171717;
+  margin-bottom: 10px;
+}
+
+.jm-bf-section__title svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  stroke: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-section__title--active {
+  color: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-required {
+  color: var(--bs-color, #D94E3D);
+  margin-left: 2px;
+}
+
+.jm-bf-service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: color-mix(in srgb, var(--bs-color, #D94E3D) 8%, #fff);
+  border: 1px solid color-mix(in srgb, var(--bs-color, #D94E3D) 20%, #e5e5e5);
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.jm-bf-service-chip__name {
+  font-weight: 600;
+  color: var(--bs-color, #D94E3D);
+}
+
+.jm-bf-btn--submit {
+  background: var(--bs-color, #D94E3D);
+  color: #fff;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jm-bf-btn--submit:hover {
+  filter: brightness(1.05);
+}
+
+.jm-bf-btn--submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.jm-bf-error {
+  padding: 10px 14px;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #D94E3D;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+
+/* ────────── 滚动提示(已用 mask-image 替代,见 .jm-mm__subs) ────────── */
+
+/* ────────── 窄屏保护(< 360px 时不让布局拥挤) ────────── */
+/* 窄屏保护(已不再需要 vw-based 宽度调整,因为 grid minmax 自动响应) */
+
+/* ────────── 动态模式: 加载 / 错误 / 空态 ────────── */
+.jm-mm__loading,
+.jm-mm__error,
+.jm-mm__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 16px;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  min-height: 200px;
+}
+.jm-mm__error { color: #D94E3D; }
+.jm-mm__error p { margin: 0; }
+.jm-mm__retry {
+  margin-top: 4px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: var(--mm-color, #D94E3D);
+  background: transparent;
+  border: 1px solid var(--mm-color, #D94E3D);
+  border-radius: 16px;
+  cursor: pointer;
+  min-height: 32px;
+  transition: background 0.2s;
+}
+.jm-mm__retry:hover {
+  background: color-mix(in srgb, var(--mm-color, #D94E3D) 10%, transparent);
+}
+.jm-mm__spinner {
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #e5e5e5;
+  border-top-color: var(--mm-color, #D94E3D);
+  border-radius: 50%;
+  animation: jm-mm-spin 0.8s linear infinite;
+}
+@keyframes jm-mm-spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+/* === JmBookingSuccessCard (booking/page.tsx抽组件后,样式集中管理) === */
+.jm-booking-success-card {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width:100%;
+}
+
+/*成功图标:圆形 brand底色 +白色对勾 */
+.jm-booking-success-card__icon {
+ margin-top:64px;
+ margin-bottom:32px;
+ width:80px;
+ height:80px;
+ border-radius:50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: var(--bsc-theme, var(--page-theme-color, #D94E3D));
+ box-shadow:08px24px color-mix(in srgb, var(--bsc-theme, var(--page-theme-color, #D94E3D))25%, transparent);
+}
+
+.jm-booking-success-card__icon-check {
+ width:40px;
+ height:40px;
+ color: #ffffff;
+}
+
+/*标题 +描述 */
+.jm-booking-success-card__title {
+ font-size:28px;
+ font-weight:600;
+ color: #171717;
+ margin-bottom:12px;
+ letter-spacing:0;
+}
+
+.jm-booking-success-card__desc {
+ font-size:14px;
+ color: #666666;
+ text-align: center;
+ margin-bottom:32px;
+ line-height:1.6;
+}
+
+/*预约信息卡片 */
+.jm-booking-success-card__info {
+ width:100%;
+ background: #ffffff;
+ border-radius:16px;
+ padding:20px;
+ box-shadow:01px2px rgba(0,0,0,0.04);
+ margin-bottom:32px;
+}
+
+.jm-booking-success-card__info-title {
+ font-size:16px;
+ font-weight:600;
+ color: #171717;
+ margin-bottom:16px;
+}
+
+.jm-booking-success-card__rows {
+ display: flex;
+ flex-direction: column;
+ gap:12px;
+}
+
+.jm-booking-success-card__row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.jm-booking-success-card__row-label {
+ font-size:13px;
+ color: #999999;
+}
+
+.jm-booking-success-card__row-value {
+ font-size:13px;
+ color: #171717;
+ text-align: right;
+}
+
+.jm-booking-success-card__divider {
+ height:1px;
+ background: #E5E5E5;
+}
+
+/*按钮:复用 JmButton 的 variant="primary" + size="lg" + fullWidth,
+ 只通过 className注入 modifier 让 globals.css 可以覆盖微调(如有) */
+.jm-booking-success-card__reset-btn {
+ width:100%;
+}
+
+/*预约编号(成功图标与描述之间) */
+.jm-booking-success-card__booking-id {
+ font-size:13px;
+ color: #999999;
+ text-align: center;
+ margin-bottom:8px;
+ letter-spacing:0.02em;
+}
+
+/*策划师头像区域(预约信息卡片顶部) */
+.jm-booking-success-card__planner {
+ display: flex;
+ align-items: center;
+ gap:14px;
+ padding:4px 0;
+}
+
+.jm-booking-success-card__planner-avatar {
+ width:52px;
+ height:52px;
+ border-radius:50%;
+ object-fit:cover;
+ flex-shrink:0;
+ background: #f0f0f0;
+}
+
+.jm-booking-success-card__planner-avatar--fallback {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size:20px;
+ font-weight:600;
+ color:#fff;
+ background: var(--page-theme-color, var(--jm-color-brand-vermilion, #D94E3D));
+}
+
+.jm-booking-success-card__planner-info {
+ flex:1;
+ min-width:0;
+}
+
+.jm-booking-success-card__planner-name {
+ font-size:16px;
+ font-weight:600;
+ color: #171717;
+}
+
+.jm-booking-success-card__planner-specialty {
+ font-size:13px;
+ font-weight:400;
+ color: var(--jm-color-brand-vermilion, #D94E3D);
+}
+
+.jm-booking-success-card__planner-description {
+ font-size:12px;
+ color: #999999;
+ margin-top:3px;
+ line-height:1.5;
+}
+
+/*多行备注/地址行:标签在上,值在下方换行 */
+.jm-booking-success-card__row--multiline {
+ flex-direction: column;
+ align-items: flex-start;
+ gap:6px;
+}
+
+.jm-booking-success-card__row--multiline .jm-booking-success-card__row-value {
+ text-align: left;
+ width:100%;
+ line-height:1.6;
+ color: #444444;
+}
+
+/* === JmGuestGate — 详情页身份门控 === */
+.jm-guest-gate {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}
+.jm-guest-gate--loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jm-guest-gate__skeleton {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: jm-shimmer 1.5s ease-in-out infinite;
+}
+.jm-guest-gate__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+.jm-guest-gate__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 320px;
+}
+.jm-guest-gate__icon {
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+.jm-guest-gate__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #171717;
+  margin-bottom: 8px;
+}
+.jm-guest-gate__desc {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.jm-guest-gate__btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 9999px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-bottom: 12px;
+}
+.jm-guest-gate__btn:active {
+  opacity: 0.8;
+}
+.jm-guest-gate__skip {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+.jm-guest-gate__skip:active {
+  color: #666;
+}
+@keyframes jm-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* === JmUserMenu — 页眉用户入口 === */
+.jm-user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.jm-user-menu__skeleton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  animation: jm-shimmer 1.5s ease-in-out infinite;
+}
+.jm-user-menu__btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.jm-user-menu__btn:active {
+  opacity: 0.75;
+}
+.jm-user-menu__initial {
+  line-height: 1;
+}
+.jm-user-menu__badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.jm-user-menu__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  z-index: 100;
+  overflow: hidden;
+  animation: jm-panel-in 0.2s ease-out;
+}
+.jm-user-menu__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 18px 14px;
+}
+.jm-user-menu__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.jm-user-menu__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.jm-user-menu__info {
+  flex: 1;
+  min-width: 0;
+}
+.jm-user-menu__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #171717;
+}
+.jm-user-menu__tag {
+  font-size: 12px;
+  color: var(--page-theme-color, #D94E3D);
+  margin-top: 2px;
+}
+.jm-user-menu__tag--guest {
+  color: #999;
+}
+.jm-user-menu__divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 0 18px;
+}
+.jm-user-menu__prompt {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.5;
+  padding: 12px 18px;
+  text-align: center;
+}
+.jm-user-menu__register-btn {
+  display: block;
+  width: calc(100% - 36px);
+  margin: 0 18px 16px;
+  height: 42px;
+  border-radius: 9999px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.jm-user-menu__register-btn:active {
+  opacity: 0.8;
+}
+.jm-user-menu__item {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #171717;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.jm-user-menu__item:active {
+  background: #f5f5f5;
+}
+.jm-user-menu__item--danger {
+  color: #e74c3c;
+}
+@keyframes jm-panel-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === JmMessage — 消息相关 === */
+.jm-msg-page {
+  min-height: 100vh;
+  background: #fafafa;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+.jm-msg-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+.jm-msg-back {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 12px;
+}
+.jm-msg-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #171717;
+}
+.jm-msg-tabs {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 16px;
+}
+.jm-msg-tab {
+  flex: 1;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #999;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.jm-msg-tab--active {
+  color: var(--page-theme-color, #D94E3D);
+  border-bottom-color: var(--page-theme-color, #D94E3D);
+  font-weight: 500;
+}
+.jm-msg-tab__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--page-theme-color, #D94E3D);
+  border-radius: 9px;
+  margin-left: 6px;
+}
+.jm-msg-list {
+  padding: 8px 16px;
+}
+.jm-msg-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.jm-msg-item:active {
+  background: #f5f5f5;
+}
+.jm-msg-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--page-theme-color, #D94E3D) 10%, #fff);
+}
+.jm-msg-item__body {
+  flex: 1;
+  min-width: 0;
+}
+.jm-msg-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.jm-msg-item__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #171717;
+}
+.jm-msg-item__title--unread {
+  font-weight: 600;
+}
+.jm-msg-item__time {
+  font-size: 12px;
+  color: #bbb;
+  flex-shrink: 0;
+}
+.jm-msg-item__preview {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jm-msg-item__unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--page-theme-color, #D94E3D);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.jm-msg-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  color: #ccc;
+}
+.jm-msg-empty__text {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 12px;
+}
+.jm-msg-item--unread {
+  border-left: 3px solid var(--page-theme-color, #D94E3D);
+}
+
+/* === JmServiceCarousel (BEM 重构:消除组件内 inline style) === */
+.jm-sc {
+ display:flex;
+ flex-direction:column;
+ flex:1;
+}
+/* 顶部标签栏 */
+.jm-sc__tabs {
+ padding:14px 9vw;
+ background:#fafafa;
+ display:flex;
+ align-items:center;
+ gap:0;
+ overflow-x:auto;
+ scrollbar-width:none;
+ -ms-overflow-style:none;
+ -webkit-overflow-scrolling:touch;
+}
+.jm-sc__tabs::-webkit-scrollbar { display:none; }
+.jm-sc__tab {
+ flex-shrink:0;
+ display:flex;
+ align-items:center;
+ gap:0;
+ padding:4px 0;
+ border:none;
+ background:transparent;
+ cursor:pointer;
+ transition:all 0.2s ease;
+}
+.jm-sc__tab-dot {
+ width:4px;
+ height:4px;
+ border-radius:50%;
+ background:transparent;
+ margin-right:6px;
+ flex-shrink:0;
+ transition:all 0.2s ease;
+}
+.jm-sc__tab-dot--active { background:#da2e75; }
+.jm-sc__tab-label {
+ font-size:13px;
+ font-family:'Noto Serif SC', Georgia, serif;
+ letter-spacing:0.04em;
+ color:#999999;
+ font-weight:400;
+ white-space:nowrap;
+}
+.jm-sc__tab--active .jm-sc__tab-label { color:#1a1a1a; font-weight:500; }
+.jm-sc__tab-divider {
+ width:1px;
+ height:12px;
+ background:#e0e0e0;
+ margin:0 12px;
+ flex-shrink:0;
+}
+/* 卡片轨道 */
+.jm-sc__track {
+ display:flex;
+ gap:16px;
+ padding:8px 9vw 28px;
+ overflow-x:auto;
+ scroll-snap-type:x mandatory;
+ -webkit-overflow-scrolling:touch;
+ scrollbar-width:none;
+ -ms-overflow-style:none;
+}
+.jm-sc__track::-webkit-scrollbar { display:none; }
+.jm-sc__card-snap {
+ scroll-snap-align:center;
+ flex-shrink:0;
+}
+/* 空状态 */
+.jm-sc__empty {
+ width:82vw;
+ max-width:320px;
+ min-height:200px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ gap:12px;
+}
+.jm-sc__empty-text {
+ font-size:13px;
+ color:#999;
+ letter-spacing:0.05em;
+}
+/* 圆点指示器 */
+.jm-sc__dots-wrap {
+ display:flex;
+ justify-content:center;
+ padding-bottom:20px;
+}
+.jm-sc__dots {
+ display:flex;
+ gap:6px;
+ align-items:center;
+}
+.jm-sc__dot {
+ width:6px;
+ height:6px;
+ border-radius:3px;
+ background:#d0d0d0;
+ border:none;
+ padding:0;
+ cursor:pointer;
+ transition:all 0.3s ease;
+}
+.jm-sc__dot--active {
+ width:20px;
+ background:#da2e75;
+}
+/* 底部分类指示 */
+.jm-sc__meta {
+ padding:20px 24px calc(24px + env(safe-area-inset-bottom));
+ background:#fafafa;
+ border-top:1px solid rgba(0,0,0,0.05);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+.jm-sc__meta-left,
+.jm-sc__meta-right { display:flex; flex-direction:column; }
+.jm-sc__meta-right { text-align:right; }
+.jm-sc__meta-tag {
+ font-size:11px;
+ color:#da2e75;
+ letter-spacing:0.15em;
+ margin-bottom:4px;
+ font-weight:500;
+}
+.jm-sc__meta-tag--muted { color:#999; font-weight:400; }
+.jm-sc__meta-name {
+ font-size:15px;
+ color:#1a1a1a;
+ font-weight:600;
+ font-family:'Noto Serif SC', Georgia, serif;
+ letter-spacing:0.04em;
+}
+.jm-sc__meta-count {
+ font-size:15px;
+ color:#666;
+ font-weight:500;
+}
+
+/* === .jm-page-content (统一 5 页面的 content 区 padding 公式) === */
+.jm-page-content {
+ padding-left:16px;
+ padding-right:16px;
+ padding-bottom:calc(64px + env(safe-area-inset-bottom));
+ padding-top:0;
+}
+.jm-page-content--services   { padding-top:17.6vw; }
+.jm-page-content--shop       { padding-top:66px; }
+.jm-page-content--booking    { padding-top:108px; }
+.jm-page-content--yunshi     { padding-top:56px; }
+
+/* === Booking 页面通用卡片 === */
+.jm-booking-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  transition: box-shadow 0.25s ease;
+  animation: jm-booking-fade-in 0.4s ease both;
+}
+
+.jm-booking-card:nth-child(2) { animation-delay: 0.05s; }
+.jm-booking-card:nth-child(3) { animation-delay: 0.1s; }
+
+@keyframes jm-booking-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 错误提示卡片 */
+.jm-booking-error {
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  background: #FFF8F7;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid rgba(217,78,61,0.1);
+}
+
+.jm-booking-error__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.jm-booking-error__text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #D94E3D;
+  margin: 0;
+}
+
+/* === JmBookingNoService === */
+.jm-booking-no-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.jm-booking-no-service__icon {
+  color: #ccc;
+  width: 48px;
+  height: 48px;
+}
+.jm-booking-no-service__text {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 底部联系方式区域 */
+.jm-booking-contacts {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.jm-booking-contacts__label {
+  font-size: 13px;
+  color: #bbb;
+  text-align: center;
+  margin: 0 0 12px;
+  letter-spacing: 0.05em;
+}
+
+/* === JmQRScanner === */
+.jm-qr-scanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+.jm-qr-scanner__reader {
+  width: 100%;
+  min-height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.jm-qr-scanner__retry {
+  min-width: 120px;
+}
+
+.jm-booking-submit-hint {
+  font-size: 13px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* === 确认摘要条 === */
+.jm-bf-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--jm-color-brand-vermilion, #D94E3D) 6%, #fff);
+  border: 1px solid color-mix(in srgb, var(--jm-color-brand-vermilion, #D94E3D) 20%, #eee);
+  border-radius: 12px;
+  animation: jm-bf-summary-in 0.35s ease-out both;
+}
+.jm-bf-summary__text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+.jm-bf-summary__text strong {
+  color: var(--jm-color-brand-vermilion, #D94E3D);
+  font-weight: 600;
+}
+@keyframes jm-bf-summary-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* === 联系方式 + 二维码并列 === */
+.jm-bf-contact-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+.jm-bf-contact-fields {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.jm-bf-contact-qr {
+  flex-shrink: 0;
+  width: 130px;
+}
+.jm-bf-contact-qr-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.jm-bf-contact-qr .jm-bf-qr-img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 4px;
+  background: #fff;
+}
+.jm-bf-contact-qr .jm-bf-qr-hint {
+  font-size: 10px;
+  color: #aaa;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* mobile: below 480px stack vertically */
+@media (max-width: 480px) {
+  .jm-bf-contact-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .jm-bf-contact-fields {
+    width: 100%;
+  }
+  .jm-bf-contact-qr {
+    width: auto;
+  }
+}
+
+/* === JmPlannerList === */
+/* 策划师列表
+   卡片:左侧 64×64 圆角头像 / 右侧 4 行(姓名/特长/简介/价格)
+   主题色: --pl-color 透传,跟随 themeColor prop
+   价格简化:无小数无千分位
+   视觉升级:平滑圆角 + 细微阴影 + 选中态光晕 */
+
+.jm-pl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0 4px;
+}
+
+.jm-pl__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jm-pl__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 14px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.jm-pl__card[role='button'] {
+  cursor: pointer;
+}
+
+.jm-pl__card[role='button']:hover {
+  border-color: #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.jm-pl__card[role='button']:active {
+  transform: scale(0.99);
+}
+
+.jm-pl__avatar {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.jm-pl__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jm-pl__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1.5px solid var(--pl-color, #D94E3D);
+  color: var(--pl-color, #D94E3D);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Noto Serif SC', serif;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.jm-pl__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.jm-pl__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  font-family: 'cwTeXMing', 'Noto Serif SC', serif;
+}
+
+.jm-pl__specialty {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.jm-pl__desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.jm-pl__prices {
+  margin-top: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.jm-pl__price-single,
+.jm-pl__price-full {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.jm-pl__price-label {
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 0.03em;
+}
+
+.jm-pl__price-num {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pl-color, #D94E3D);
+  letter-spacing: 0.02em;
+}
+
+.jm-pl__price-sep {
+  color: #e0e0e0;
+  font-size: 12px;
+  margin: 0 3px;
+}
+
+.jm-pl__book {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-block;
+  min-height: auto;
+  min-width: auto;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pl-color, #D94E3D);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.jm-pl__book:hover {
+  color: color-mix(in srgb, var(--pl-color, #D94E3D) 70%, #000);
+}
+
+.jm-pl__book:active {
+  transform: scale(0.96);
+}
+
+.jm-pl__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 0;
+  color: #999;
+  font-size: 13px;
+}
+
+.jm-pl__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e8e8e8;
+  border-top-color: var(--pl-color, #D94E3D);
+  border-radius: 50%;
+  animation: jm-pl-spin 0.8s linear infinite;
+}
+
+@keyframes jm-pl-spin {
+  to { transform: rotate(360deg); }
+}
+
+.jm-pl__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  color: #888;
+  font-size: 13px;
+}
+
+.jm-pl__retry {
+  padding: 4px 12px;
+  border: 1px solid var(--pl-color, #D94E3D);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--pl-color, #D94E3D);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.jm-pl__empty {
+  padding: 32px 0;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+
+/* === JmPlannerList 选中态 / 展开区 / chip（booking 首屏用）=== */
+
+.jm-pl__card--selected {
+  border-color: var(--pl-color, #D94E3D);
+  box-shadow: 0 0 0 1px var(--pl-color, #D94E3D), 0 2px 12px rgba(217,78,61,0.08);
+}
+
+/* === JmPlannerList 交付方式 radio + inline 日期/地址 === */
+
+.jm-pl__delivery {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.jm-pl__delivery-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.jm-pl__delivery-options {
+  display: flex;
+  gap: 8px;
+}
+
+.jm-pl__delivery-radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  height: 32px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #666;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.jm-pl__delivery-radio:hover {
+  border-color: color-mix(in srgb, var(--pl-color, #D94E3D) 40%, #ddd);
+}
+
+.jm-pl__delivery-radio--active {
+  border-color: var(--pl-color, #D94E3D);
+  background: var(--pl-color, #D94E3D);
+  color: #fff;
+  font-weight: 600;
+}
+
+.jm-pl__delivery-radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.jm-pl__delivery-radio-label {
+  line-height: 1;
+}
+
+/* inline extras (date picker + address) */
+.jm-pl-card__inline-extras {
+  margin: 8px 0 4px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--pl-color, #D94E3D) 3%, #fafafa);
+  border: 1px solid color-mix(in srgb, var(--pl-color, #D94E3D) 20%, #eee);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: jm-pl-extras-in 0.25s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jm-pl-card__inline-extras {
+    animation: none;
+  }
+}
+
+@keyframes jm-pl-extras-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.jm-pl__address-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jm-pl__address-label {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.02em;
+}
+
+.jm-pl__address-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+}
+
+.jm-pl__address-input:focus {
+  border-color: var(--pl-color, #D94E3D);
+}
+
+.jm-pl__address-input::placeholder {
+  color: #bbb;
+}
