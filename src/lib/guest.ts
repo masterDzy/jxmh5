@@ -38,6 +38,35 @@ interface GuestMeResult {
   nickname: string;
 }
 
+// ==================== 中文昵称生成 ====================
+
+/**
+ * 中文"自我标榜"风格昵称池
+ * 风格: 最X的X / 形容词 + 名词 / 俏皮自嘲
+ * 用途: 游客本地兜底昵称(后端 /api/v1/guest/create 失败时使用)
+ */
+const CHINESE_NICKNAMES = [
+  '最帅的帅哥', '最美的美女', '宇宙无敌', '暖心小太阳', '可爱多',
+  '萌萌哒', '小仙女', '阳光少年', '甜心宝贝', '佛系青年',
+  '吃货一枚', '夜猫子', '早起鸟儿', '路人甲', '神秘嘉宾',
+  '邻家小妹', '追风少年', '开心果', '隔壁老王', '云端漫游',
+  '微笑天使', '元气满满', '低调的奢华', '佛系玩家', '人间清醒',
+  '资深干饭人', '柠檬精本精', '气氛组组长', '野生设计师', '野生文案',
+  '追剧小达人', '冲浪选手', '佛系打工人', '摆烂大师', '锦鲤本鲤',
+  '岁月静好', '岁月如歌', '微风不燥', '阳光正好', '人间值得',
+  '可可西里', '北方有佳人', '南风知我意', '岁月不居', '时光旅行者',
+];
+
+/** 随机返回一个中文"自封型"昵称 */
+export function getRandomChineseNickname(): string {
+  return CHINESE_NICKNAMES[Math.floor(Math.random() * CHINESE_NICKNAMES.length)]
+}
+
+/** @deprecated 使用 getRandomChineseNickname */
+export function getRandomChineseName(): string {
+  return getRandomChineseNickname()
+}
+
 // ==================== 设备指纹 ====================
 
 function generateDeviceFingerprint(): string {
@@ -141,7 +170,7 @@ export function useGuest(): GuestInfo {
       const fallbackId = generateDeviceFingerprint();
       setState({
         id: fallbackId,
-        nickname: '访客_' + fallbackId.slice(-4),
+        nickname: getRandomChineseNickname(),
         token: '',
         isLoading: false,
         isReady: true,

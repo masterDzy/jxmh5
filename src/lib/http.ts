@@ -2,7 +2,7 @@
  * HTTP 请求层 — axios 封装
  *
  * 功能：
- * 1. 自动处理环境差异（dev/prod）
+ * 1. 自动处理环境差异（dev/prod/capacitor）
  * 2. 请求/响应拦截器
  * 3. Token 自动刷新
  * 4. 错误统一处理

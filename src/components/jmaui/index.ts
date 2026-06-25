@@ -85,6 +85,8 @@ export { JmBookingSuccessCard } from './components/content/JmBookingSuccessCard'
 export type { JmBookingSuccessCardProps } from './components/content/JmBookingSuccessCard/props'
 export { JmGuestProfile } from './components/content/JmGuestProfile'
 export type { JmGuestProfileProps } from './components/content/JmGuestProfile/props'
+export { JmUserProfile } from './components/content/JmUserProfile'
+export type { JmUserInfo, JmUserProfileProps } from './components/content/JmUserProfile/props'
 
 // Components - Functional (continued)
 export { JmLockedMenuItem } from './components/functional/JmLockedMenuItem'

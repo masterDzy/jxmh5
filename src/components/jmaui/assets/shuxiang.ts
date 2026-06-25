@@ -10,7 +10,7 @@
  *
  * 格式选择建议:
  *   svg  → H5 矢量展示,可继承 currentColor 改色
- *   webp → H5 移动端,体积最小,推荐
+ *   webp → APK 移动端,体积最小,推荐
  *   png  → 通用位图(透明背景)
  *   jpg  → 备用
  *
@@ -34,7 +34,7 @@ import chickenSvg from '@/assets/shuxiang/v2_chicken.svg'
 import dogSvg from '@/assets/shuxiang/v2_dog.svg'
 import pigSvg from '@/assets/shuxiang/v2_pig.svg'
 
-// === WebP(推荐 H5 移动端,体积最小) ===
+// === WebP(推荐 APK 移动端,体积最小) ===
 import ratWebp from '@/assets/shuxiang/v2_rat.webp'
 import oxWebp from '@/assets/shuxiang/v2_ox.webp'
 import tigerWebp from '@/assets/shuxiang/v2_tiger.webp'

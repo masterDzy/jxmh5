@@ -5,7 +5,7 @@
  * - development: 浏览器 localhost 开发，API 直连 localhost:8009
  * - lan: 手机/平板通过 192.168.31.x 局域网 IP 访问 H5，API 直连当前 hostname:8009
  *        （不走 NodeBabyLink tunnel，因为手机无 tunnel 客户端）
- * - staging: 异地组网设备（100.66.1.x）走 NodeBabyLink tunnel
+ * - staging: Capacitor 原生 APK / 异地组网设备（100.66.1.x）走 NodeBabyLink tunnel
  * - production: 正式发布，使用线上域名
  */
 
@@ -23,7 +23,7 @@ export const API_CONFIG = {
     timeout: 15000,
   },
 
-  // 联调环境（异地组网设备）
+  // 联调环境（Capacitor 真机 / 异地组网设备）
   // 异地组网设备（100.66.1.x）经 NodeBabyLink 隧道访问本机
   staging: {
     baseURL: '',
@@ -43,7 +43,14 @@ export type EnvType = 'development' | 'lan' | 'staging' | 'production';
 export function getEnv(): EnvType {
   if (typeof window === 'undefined') return 'development';
 
-  // 1. 浏览器开发环境（localhost / 127.0.0.1）
+  // 1. Capacitor 原生环境（真机运行 APK）
+  const cap = (window as any).Capacitor;
+  const isNativeCapacitor = cap?.isNativePlatform?.();
+  if (isNativeCapacitor) {
+    return 'staging';
+  }
+
+  // 2. 浏览器开发环境（localhost / 127.0.0.1）
   if (window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1') {
     return 'development';
