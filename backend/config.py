@@ -7,6 +7,13 @@ class Settings(BaseSettings):
     #      不可在源码硬编码真实密码
     database_url: str = ""
 
+    # 运行环境: "development" | "production"
+    # 生产环境设置 ENV=production:
+    #   - auth cookies secure=True (HTTPS-only)
+    #   - 关闭 debug 模式
+    # 开发默认 "development" (cookies 允许 http 便于 curl 测试)
+    env_name: str = "development"
+
     debug: bool = False
 
     # JWT settings

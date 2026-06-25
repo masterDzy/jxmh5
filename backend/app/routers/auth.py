@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, Request, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from database import get_db
+from config import settings
 
 logger = logging.getLogger(__name__)
 from app.schemas.auth import (
@@ -22,6 +23,12 @@ from app.utils.deps import get_current_user
 from app.models.user import User
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
+
+# P0-4: cookies 必须在生产环境 HTTPS-only,避免 token 中间人窃取
+# 通过 ENV=production 切换;开发默认 secure=False 便于 curl/http 测试
+IS_PRODUCTION = settings.env_name == "production"
+COOKIE_SECURE = IS_PRODUCTION
+COOKIE_SAMESITE = "none" if IS_PRODUCTION else "lax"  # secure=True 必须 samesite=none
 
 
 @router.post("/register", response_model=AuthResponse)
@@ -41,16 +48,16 @@ async def register(request: RegisterRequest, response: Response, db: AsyncSessio
         key="auth_access_token",
         value=tokens["access_token"],
         httponly=True,
-        secure=False,  # 开发环境设为 False
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=tokens["expires_in"],
     )
     response.set_cookie(
         key="auth_refresh_token",
         value=tokens["refresh_token"],
         httponly=True,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,  # 7 天
     )
     # 非 httponly cookie 用于前端 JavaScript 读取 (localStorage 同步)
@@ -58,16 +65,16 @@ async def register(request: RegisterRequest, response: Response, db: AsyncSessio
         key="auth_access_token_js",
         value=tokens["access_token"],
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=tokens["expires_in"],
     )
     response.set_cookie(
         key="auth_refresh_token_js",
         value=tokens["refresh_token"],
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,
     )
     # 用户信息 cookie（无痕模式下 localStorage 不可用，需要从 cookie 读取）
@@ -76,8 +83,8 @@ async def register(request: RegisterRequest, response: Response, db: AsyncSessio
         key="auth_user_data",
         value=user_data,
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,
     )
     return AuthResponse(
@@ -116,16 +123,16 @@ async def login(
         key="auth_access_token",
         value=tokens["access_token"],
         httponly=True,
-        secure=False,  # 开发环境设为 False
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=tokens["expires_in"],
     )
     response.set_cookie(
         key="auth_refresh_token",
         value=tokens["refresh_token"],
         httponly=True,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,  # 7 天
     )
     # 非 httponly cookie 用于前端 JavaScript 读取 (localStorage 同步)
@@ -133,16 +140,16 @@ async def login(
         key="auth_access_token_js",
         value=tokens["access_token"],
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=tokens["expires_in"],
     )
     response.set_cookie(
         key="auth_refresh_token_js",
         value=tokens["refresh_token"],
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,
     )
     # 用户信息 cookie（无痕模式下 localStorage 不可用，需要从 cookie 读取）
@@ -151,8 +158,8 @@ async def login(
         key="auth_user_data",
         value=user_data,
         httponly=False,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=7 * 24 * 3600,
     )
 
@@ -183,8 +190,8 @@ async def refresh(request: RefreshRequest, response: Response, db: AsyncSession 
         key="auth_access_token",
         value=tokens["access_token"],
         httponly=True,
-        secure=False,
-        samesite="lax",
+        secure=COOKIE_SECURE,
+        samesite=COOKIE_SAMESITE,
         max_age=tokens["expires_in"],
     )
     return AuthResponse(
@@ -331,12 +338,12 @@ async def phone_login(request: PhoneLoginRequest, response: Response, db: AsyncS
     tokens = service.create_tokens(str(user.id))
 
     # 设置 cookie
-    response.set_cookie(key="auth_access_token", value=tokens["access_token"], httponly=True, secure=False, samesite="lax", max_age=tokens["expires_in"])
-    response.set_cookie(key="auth_refresh_token", value=tokens["refresh_token"], httponly=True, secure=False, samesite="lax", max_age=7 * 24 * 3600)
-    response.set_cookie(key="auth_access_token_js", value=tokens["access_token"], httponly=False, secure=False, samesite="lax", max_age=tokens["expires_in"])
-    response.set_cookie(key="auth_refresh_token_js", value=tokens["refresh_token"], httponly=False, secure=False, samesite="lax", max_age=7 * 24 * 3600)
+    response.set_cookie(key="auth_access_token", value=tokens["access_token"], httponly=True, secure=COOKIE_SECURE, samesite=COOKIE_SAMESITE, max_age=tokens["expires_in"])
+    response.set_cookie(key="auth_refresh_token", value=tokens["refresh_token"], httponly=True, secure=COOKIE_SECURE, samesite=COOKIE_SAMESITE, max_age=7 * 24 * 3600)
+    response.set_cookie(key="auth_access_token_js", value=tokens["access_token"], httponly=False, secure=COOKIE_SECURE, samesite=COOKIE_SAMESITE, max_age=tokens["expires_in"])
+    response.set_cookie(key="auth_refresh_token_js", value=tokens["refresh_token"], httponly=False, secure=COOKIE_SECURE, samesite=COOKIE_SAMESITE, max_age=7 * 24 * 3600)
     user_data = json.dumps({"id": str(user.id), "phone": user.phone})
-    response.set_cookie(key="auth_user_data", value=user_data, httponly=False, secure=False, samesite="lax", max_age=7 * 24 * 3600)
+    response.set_cookie(key="auth_user_data", value=user_data, httponly=False, secure=COOKIE_SECURE, samesite=COOKIE_SAMESITE, max_age=7 * 24 * 3600)
 
     return AuthResponse(
         error=False,
