@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { get, post } from '@/lib/http'
 import { STORAGE_KEYS, removeItem } from '@/lib/storage'
 import type { JmUserInfo, JmUserProfileProps } from './props'
@@ -76,6 +76,13 @@ export function JmUserProfile({
   const [loading, setLoading] = useState(true)
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
 
+  // onLogout 在 page 端每次 render 都是新引用, 直接放 deps 会触发死循环重跑 API
+  // 用 ref 包一层: ref.current 始终是最新回调, useEffect 改空 deps, mount 跑一次
+  const onLogoutRef = useRef(onLogout)
+  useEffect(() => {
+    onLogoutRef.current = onLogout
+  }, [onLogout])
+
   useEffect(() => {
     let cancelled = false
     async function load() {
@@ -89,7 +96,7 @@ export function JmUserProfile({
           removeItem(STORAGE_KEYS.accessToken)
           removeItem(STORAGE_KEYS.refreshToken)
           removeItem(STORAGE_KEYS.user)
-          await onLogout()
+          await onLogoutRef.current()
         }
       } catch {
         if (!cancelled) console.error('获取用户信息失败')
@@ -101,7 +108,7 @@ export function JmUserProfile({
     return () => {
       cancelled = true
     }
-  }, [onLogout])
+  }, [])
 
   const executeLogout = async () => {
     setShowLogoutConfirm(false)
