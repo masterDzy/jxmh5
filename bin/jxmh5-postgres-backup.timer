@@ -1,0 +1,12 @@
+[Unit]
+Description=每日 03:00 触发 jxmh5 Postgres 备份
+
+[Timer]
+# 03:00 跑(凌晨低峰)
+OnCalendar=*-*-* 03:00:00
+# 启动后 5 分钟跑一次(防错过)
+Persistent=true
+Unit=jxmh5-postgres-backup.service
+
+[Install]
+WantedBy=timers.target

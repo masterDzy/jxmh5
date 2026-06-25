@@ -1,0 +1,16 @@
+[Unit]
+Description=jx_m_apk Postgres 每日备份
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/home/jxmh5
+ExecStart=/home/jxmh5/bin/backup-postgres.sh
+StandardOutput=append:/home/jxmh5/.dev-logs/backup.log
+StandardError=append:/home/jxmh5/.dev-logs/backup.log
+
+# 保护参数(防备份脚本意外把内存吃爆)
+MemoryMax=512M
+CPUQuota=100%

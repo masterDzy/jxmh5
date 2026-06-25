@@ -1,0 +1,8 @@
+[Unit]
+Description=jxmh5 健康检查（HTTP + Docker + 磁盘）
+After=network.target docker.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/home/jxmh5/bin/jxmh5-healthcheck.sh

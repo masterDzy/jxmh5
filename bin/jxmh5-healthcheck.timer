@@ -1,0 +1,10 @@
+[Unit]
+Description=每分钟跑一次 jxmh5 健康检查
+
+[Timer]
+OnCalendar=*:*:00
+AccuracySec=10s
+Unit=jxmh5-healthcheck.service
+
+[Install]
+WantedBy=timers.target
