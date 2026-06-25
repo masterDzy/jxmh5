@@ -2,7 +2,6 @@ import json
 import logging
 import random
 import time
-import uuid
 from fastapi import APIRouter, Depends, Request, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -78,7 +77,7 @@ async def register(request: RegisterRequest, response: Response, db: AsyncSessio
         max_age=7 * 24 * 3600,
     )
     # 用户信息 cookie（无痕模式下 localStorage 不可用，需要从 cookie 读取）
-    user_data = json.dumps({"id": user.id, "phone": user.phone})
+    user_data = json.dumps({"id": str(user.id), "phone": user.phone})
     response.set_cookie(
         key="auth_user_data",
         value=user_data,
